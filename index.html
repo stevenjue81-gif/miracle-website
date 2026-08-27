@@ -165,6 +165,17 @@
   .partner-stat b{ display:block; font-family:'Noto Serif SC','Noto Serif JP',serif; font-size:24px; color:var(--ink); margin-bottom:4px; }
   .partner-stat span{ font-size:13px; color:var(--ink-soft); }
 
+  .product-gallery{ margin-top:64px; }
+  .product-gallery-label{ display:block; font-size:13px; letter-spacing:0.04em; color:var(--brass-deep); font-weight:500; margin-bottom:20px; }
+  .product-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .product-card{ background:var(--ink); }
+  .product-card img{ width:100%; height:200px; object-fit:cover; display:block; }
+  .product-card figcaption{ padding:18px 16px 20px; background:var(--paper); height:100%; }
+  .product-card figcaption b{ display:block; font-size:13.5px; font-weight:600; color:var(--ink); margin-bottom:6px; line-height:1.4; }
+  .product-card figcaption span{ font-size:12px; color:var(--ink-soft); line-height:1.55; display:block; }
+  @media (max-width:860px){ .product-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .product-grid{ grid-template-columns:1fr; } }
+
   .process{ counter-reset:step; }
   .process-list{ border-top:1px solid var(--line); }
   .process-item{
@@ -387,6 +398,76 @@
           <b><span data-lang="zh">滑台 · 电缸 · 齿轮齿条 · 直线电机</span><span data-lang="en">Slides · Cylinders · Racks · Linear Motors</span><span data-lang="ja">スライド・シリンダー・ラック・リニアモーター</span></b>
           <span><span data-lang="zh">核心产品系列</span><span data-lang="en">Core product lines</span><span data-lang="ja">主要製品ライン</span></span>
         </div>
+      </div>
+    </div>
+
+    <div class="product-gallery">
+      <span class="product-gallery-label">
+        <span data-lang="zh">产品实拍 · 紧跟半导体与自动化升级趋势</span>
+        <span data-lang="en">Product Highlights · Built for Semiconductor & Automation Upgrades</span>
+        <span data-lang="ja">製品写真 · 半導体・自動化アップグレードのトレンドに対応</span>
+      </span>
+      <div class="product-grid">
+        <figure class="product-card">
+          <img src="product-1.jpg" alt="HCL10 无尘室螺杆滑台 Cleanroom Ball-Screw Slide">
+          <figcaption>
+            <b>
+              <span data-lang="zh">无尘室螺杆滑台 HCL10</span>
+              <span data-lang="en">Cleanroom Ball-Screw Slide HCL10</span>
+              <span data-lang="ja">クリーンルーム対応スライド HCL10</span>
+            </b>
+            <span>
+              <span data-lang="zh">半导体级洁净设计，对接国产半导体设备扩产需求</span>
+              <span data-lang="en">Semiconductor-grade clean design, matched to China's expanding chip equipment demand</span>
+              <span data-lang="ja">半導体グレードのクリーン設計、半導体設備の増産需要に対応</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="product-2.jpg" alt="电磁驱动直线电机 Direct-Drive Linear Motor">
+          <figcaption>
+            <b>
+              <span data-lang="zh">电磁直驱直线电机</span>
+              <span data-lang="en">Direct-Drive Linear Motor</span>
+              <span data-lang="ja">電磁直動リニアモーター</span>
+            </b>
+            <span>
+              <span data-lang="zh">超低顿振、正弦波绕线，面向高速高精度产线的新品</span>
+              <span data-lang="en">Ultra-low cogging with sine winding — new release for high-speed precision lines</span>
+              <span data-lang="ja">超低コギング・正弦波巻線、高速高精度ラインに向けた新製品</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="product-3.jpg" alt="HCB85 皮带传动滑台 Belt-Driven Slide">
+          <figcaption>
+            <b>
+              <span data-lang="zh">HCB系列皮带传动滑台</span>
+              <span data-lang="en">HCB Belt-Driven Slide</span>
+              <span data-lang="ja">HCBシリーズ ベルト駆動スライド</span>
+            </b>
+            <span>
+              <span data-lang="zh">长行程、高速度，适配3C与物流搬运自动化场景</span>
+              <span data-lang="en">Long stroke, high speed — suited to 3C and material-handling automation</span>
+              <span data-lang="ja">ロングストローク・高速仕様、3C・搬送自動化に対応</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="product-4.jpg" alt="HCD3 螺杆传动滑台 Ball-Screw Slide">
+          <figcaption>
+            <b>
+              <span data-lang="zh">HCD系列螺杆传动滑台</span>
+              <span data-lang="en">HCD Ball-Screw Slide</span>
+              <span data-lang="ja">HCDシリーズ ボールねじ駆動スライド</span>
+            </b>
+            <span>
+              <span data-lang="zh">紧凑机身、精密定位，适配生物科技检测设备</span>
+              <span data-lang="en">Compact body, precision positioning — fits biotech testing equipment</span>
+              <span data-lang="ja">コンパクト設計・精密位置決め、バイオ検査装置に対応</span>
+            </span>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </div>
