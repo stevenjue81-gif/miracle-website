@@ -141,11 +141,29 @@
   .cap-card li::before{ content:"—"; position:absolute; left:0; color:var(--brass); }
 
   .network{ background:var(--paper-warm); }
-  .network-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); max-width:560px; }
-  .network-card{ background:var(--paper-warm); padding:40px; }
-  .network-card .tag{ display:inline-block; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--brass-deep); border:1px solid var(--brass); padding:4px 10px; margin-bottom:18px; }
-  .network-card h3{ font-size:19px; font-weight:600; margin-bottom:10px; }
-  .network-card p{ font-size:14.5px; color:var(--ink-soft); }
+  .partner-feature{
+    border:1px solid var(--brass); background:var(--paper);
+    padding:56px 64px; position:relative;
+  }
+  .partner-feature::before{
+    content:""; position:absolute; left:0; top:40px; bottom:40px; width:4px; background:var(--brass);
+  }
+  .partner-tag{
+    display:inline-block; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--brass-deep); margin-bottom:20px;
+  }
+  .partner-name{
+    font-family:'Noto Serif SC','Noto Serif JP',serif; font-weight:700;
+    font-size:clamp(28px,3.4vw,42px); line-height:1.2; color:var(--ink); margin-bottom:8px;
+  }
+  .partner-en{ font-size:14px; color:var(--ink-soft); margin-bottom:28px; }
+  .partner-focus{
+    font-size:19px; font-weight:600; color:var(--brass-deep); margin-bottom:16px;
+  }
+  .partner-desc{ font-size:16px; color:var(--ink-soft); max-width:640px; margin-bottom:32px; }
+  .partner-stats{ display:flex; gap:56px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:28px; }
+  .partner-stat b{ display:block; font-family:'Noto Serif SC','Noto Serif JP',serif; font-size:24px; color:var(--ink); margin-bottom:4px; }
+  .partner-stat span{ font-size:13px; color:var(--ink-soft); }
 
   .process{ counter-reset:step; }
   .process-list{ border-top:1px solid var(--line); }
@@ -189,8 +207,10 @@
 
   @media (max-width:860px){
     .navlinks{ display:none; }
-    .about-grid, .cap-grid, .network-grid, .contact-grid, .form-row{ grid-template-columns:1fr; }
-    .cap-grid, .network-grid{ background:var(--line); }
+    .about-grid, .cap-grid, .contact-grid, .form-row{ grid-template-columns:1fr; }
+    .cap-grid{ background:var(--line); }
+    .partner-feature{ padding:32px 24px; }
+    .partner-stats{ gap:28px; }
     section{ padding:64px 0; }
     .hero{ padding:88px 0 64px; }
   }
@@ -339,11 +359,34 @@
         <span data-lang="ja">東莞地域の精密製造企業と長期的な協力関係を築いており、注文規模や加工要件に応じて最適なパートナーをご紹介します。</span>
       </p>
     </div>
-    <div class="network-grid">
-      <div class="network-card">
-        <span class="tag"><span data-lang="zh">合作供应商 · 东莞市力旋机械制造有限公司</span><span data-lang="en">Partner Supplier · Dongguan Lixuan Machinery Manufacturing Co., Ltd.</span><span data-lang="ja">協力サプライヤー · 東莞市力旋機械製造有限公司</span></span>
-        <h3><span data-lang="zh">精密定位滑台 · 直线电机 · 电动缸</span><span data-lang="en">Precision Slides · Linear Motors · Electric Cylinders</span><span data-lang="ja">精密位置決めスライド・リニアモーター・電動シリンダー</span></h3>
-        <p><span data-lang="zh">专业研发制造精密定位滑台、直线滑台与电动缸，产品应用于3C、半导体、生物科技等自动化设备领域。</span><span data-lang="en">Specializes in precision positioning slides, linear slides and electric cylinders, applied across 3C, semiconductor and biotech automation equipment.</span><span data-lang="ja">精密位置決めスライド・リニアスライド・電動シリンダーの開発製造を専門とし、3C・半導体・バイオ関連の自動化設備分野で採用されています。</span></p>
+    <div class="partner-feature">
+      <span class="partner-tag">
+        <span data-lang="zh">核心合作供应商</span><span data-lang="en">Core Partner Supplier</span><span data-lang="ja">主要協力サプライヤー</span>
+      </span>
+      <div class="partner-name">
+        <span data-lang="zh">东莞市力旋机械制造有限公司</span>
+        <span data-lang="en">Dongguan Lixuan Machinery Manufacturing Co., Ltd.</span>
+        <span data-lang="ja">東莞市力旋機械製造有限公司</span>
+      </div>
+      <div class="partner-focus">
+        <span data-lang="zh">精密定位滑台 · 直线电机 · 电动缸</span>
+        <span data-lang="en">Precision Slides · Linear Motors · Electric Cylinders</span>
+        <span data-lang="ja">精密位置決めスライド・リニアモーター・電動シリンダー</span>
+      </div>
+      <p class="partner-desc">
+        <span data-lang="zh">专业研发制造精密定位滑台、直线滑台与电动缸，产品应用于3C、半导体、生物科技等自动化设备领域。</span>
+        <span data-lang="en">Specializes in precision positioning slides, linear slides and electric cylinders, applied across 3C, semiconductor and biotech automation equipment.</span>
+        <span data-lang="ja">精密位置決めスライド・リニアスライド・電動シリンダーの開発製造を専門とし、3C・半導体・バイオ関連の自動化設備分野で採用されています。</span>
+      </p>
+      <div class="partner-stats">
+        <div class="partner-stat">
+          <b>3C / <span data-lang="zh">半导体 / 生物科技</span><span data-lang="en">Semiconductor / Biotech</span><span data-lang="ja">半導体・バイオ</span></b>
+          <span><span data-lang="zh">主要应用领域</span><span data-lang="en">Key application fields</span><span data-lang="ja">主な応用分野</span></span>
+        </div>
+        <div class="partner-stat">
+          <b><span data-lang="zh">滑台 · 电缸 · 齿轮齿条 · 直线电机</span><span data-lang="en">Slides · Cylinders · Racks · Linear Motors</span><span data-lang="ja">スライド・シリンダー・ラック・リニアモーター</span></b>
+          <span><span data-lang="zh">核心产品系列</span><span data-lang="en">Core product lines</span><span data-lang="ja">主要製品ライン</span></span>
+        </div>
       </div>
     </div>
   </div>
