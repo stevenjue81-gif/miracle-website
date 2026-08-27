@@ -131,7 +131,7 @@
   .fact-row span:first-child{ color:var(--ink-soft); }
   .fact-row span:last-child{ font-weight:500; text-align:right; max-width:60%; }
 
-  .cap-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .cap-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
   .cap-card{ background:var(--paper); padding:36px 28px; }
   .cap-num{ font-family:'Noto Serif SC','Noto Serif JP',serif; color:var(--brass-deep); font-size:14px; margin-bottom:20px; display:block; }
   .cap-card h3{ font-size:18px; font-weight:600; margin-bottom:12px; }
@@ -141,7 +141,7 @@
   .cap-card li::before{ content:"—"; position:absolute; left:0; color:var(--brass); }
 
   .network{ background:var(--paper-warm); }
-  .network-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .network-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); max-width:560px; }
   .network-card{ background:var(--paper-warm); padding:40px; }
   .network-card .tag{ display:inline-block; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--brass-deep); border:1px solid var(--brass); padding:4px 10px; margin-bottom:18px; }
   .network-card h3{ font-size:19px; font-weight:600; margin-bottom:10px; }
@@ -316,16 +316,11 @@
     <div class="cap-grid">
       <div class="cap-card">
         <span class="cap-num">01</span>
-        <h3><span data-lang="zh">精密弹簧与冲压件</span><span data-lang="en">Precision Springs & Stamped Parts</span><span data-lang="ja">精密ばね・プレス加工品</span></h3>
-        <p><span data-lang="zh">线径0.03至8.0mm覆盖，压簧、拉簧、扭簧、异形弹簧及精密五金冲压件。</span><span data-lang="en">Wire diameter 0.03–8.0mm, covering compression, tension, torsion and custom-form springs plus precision stamped hardware.</span><span data-lang="ja">線径0.03〜8.0mmに対応。圧縮ばね、引張ばね、ねじりばね、異形ばね、精密プレス部品を取り扱います。</span></p>
-      </div>
-      <div class="cap-card">
-        <span class="cap-num">02</span>
         <h3><span data-lang="zh">精密车件与CNC加工</span><span data-lang="en">Precision Machined & CNC Parts</span><span data-lang="ja">精密旋盤・CNC加工品</span></h3>
         <p><span data-lang="zh">走芯机、慢走丝、CNC加工中心，覆盖回转体结构件、连接件与定制车件。</span><span data-lang="en">Swiss-type lathes, wire EDM and CNC machining centers for rotational structural parts, connectors, and custom turned components.</span><span data-lang="ja">スイス型自動旋盤、ワイヤー放電加工、CNC加工センターにより、回転体構造部品・コネクタ・カスタム旋削部品に対応します。</span></p>
       </div>
       <div class="cap-card">
-        <span class="cap-num">03</span>
+        <span class="cap-num">02</span>
         <h3><span data-lang="zh">自动化设备配套件</span><span data-lang="en">Automation Equipment Components</span><span data-lang="ja">自動化設備向け部品</span></h3>
         <p><span data-lang="zh">直线滑台、电动缸等自动化模组的配套结构件、轴类、紧固件及表面处理。</span><span data-lang="en">Structural, shaft and fastener components for linear slides, electric cylinders and other automation modules, plus surface finishing.</span><span data-lang="ja">直動スライド、電動シリンダーなど自動化モジュール向けの構造部品・シャフト・締結部品、表面処理に対応。</span></p>
       </div>
@@ -339,17 +334,12 @@
       <span class="eyebrow"><span data-lang="zh">合作网络</span><span data-lang="en">Partner Network</span><span data-lang="ja">パートナーネットワーク</span></span>
       <h2><span data-lang="zh">扎根本地的供应商网络</span><span data-lang="en">A locally grounded supplier network</span><span data-lang="ja">地域に根ざしたサプライヤーネットワーク</span></h2>
       <p>
-        <span data-lang="zh">我们与东莞本地多家精密制造企业保持长期合作关系，能够根据订单规模与工艺要求，匹配最合适的承接方。</span>
-        <span data-lang="en">We maintain long-standing relationships with multiple precision manufacturers in Dongguan, matching orders to the most suitable partner based on scale and process requirements.</span>
-        <span data-lang="ja">東莞地域の複数の精密製造企業と長期的な協力関係を築いており、注文規模や加工要件に応じて最適なパートナーをご紹介します。</span>
+        <span data-lang="zh">我们与东莞本地精密制造企业保持长期合作关系，能够根据订单规模与工艺要求，匹配最合适的承接方。</span>
+        <span data-lang="en">We maintain a long-standing relationship with a precision manufacturer in Dongguan, matching orders to the most suitable partner based on scale and process requirements.</span>
+        <span data-lang="ja">東莞地域の精密製造企業と長期的な協力関係を築いており、注文規模や加工要件に応じて最適なパートナーをご紹介します。</span>
       </p>
     </div>
     <div class="network-grid">
-      <div class="network-card">
-        <span class="tag"><span data-lang="zh">合作供应商</span><span data-lang="en">Partner Supplier</span><span data-lang="ja">協力サプライヤー</span></span>
-        <h3><span data-lang="zh">精密弹簧 · 精密车件 · 表面处理</span><span data-lang="en">Precision Springs · Machined Parts · Finishing</span><span data-lang="ja">精密ばね・精密旋削・表面処理</span></h3>
-        <p><span data-lang="zh">合作工厂具备成熟的弹簧成型、精密车削与自有电镀工艺，服务于消费电子、汽车电子等多个行业的头部客户。</span><span data-lang="en">Our partner factory offers mature spring forming, precision turning and in-house electroplating, serving leading customers across consumer electronics and automotive electronics.</span><span data-lang="ja">協力工場は成熟したばね成形・精密旋削・自社メッキ技術を有し、家電・車載電子など多分野のトップクライアントに対応しています。</span></p>
-      </div>
       <div class="network-card">
         <span class="tag"><span data-lang="zh">合作供应商 · 东莞市力旋机械制造有限公司</span><span data-lang="en">Partner Supplier · Dongguan Lixuan Machinery Manufacturing Co., Ltd.</span><span data-lang="ja">協力サプライヤー · 東莞市力旋機械製造有限公司</span></span>
         <h3><span data-lang="zh">精密定位滑台 · 直线电机 · 电动缸</span><span data-lang="en">Precision Slides · Linear Motors · Electric Cylinders</span><span data-lang="ja">精密位置決めスライド・リニアモーター・電動シリンダー</span></h3>
@@ -457,7 +447,6 @@
         <div>
           <label><span data-lang="zh">需求类别</span><span data-lang="en">Inquiry Type</span><span data-lang="ja">お問い合わせ種別</span></label>
           <select name="inquiry_type">
-            <option><span data-lang="zh">精密弹簧 / 冲压件</span><span data-lang="en">Precision Springs / Stamped Parts</span><span data-lang="ja">精密ばね・プレス部品</span></option>
             <option><span data-lang="zh">精密车件 / CNC加工</span><span data-lang="en">Machined / CNC Parts</span><span data-lang="ja">精密旋削・CNC加工</span></option>
             <option><span data-lang="zh">自动化设备配件</span><span data-lang="en">Automation Components</span><span data-lang="ja">自動化設備部品</span></option>
             <option><span data-lang="zh">其他</span><span data-lang="en">Other</span><span data-lang="ja">その他</span></option>
