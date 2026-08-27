@@ -159,6 +159,10 @@
   .process-item h3{ font-size:16.5px; font-weight:600; margin-bottom:6px; }
   .process-item p{ font-size:14px; color:var(--ink-soft); max-width:520px; }
 
+  .office-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:16px; }
+  .office-grid img{ width:100%; height:280px; object-fit:cover; border-radius:2px; }
+  @media (max-width:860px){ .office-grid{ grid-template-columns:1fr; } .office-grid img{ height:220px; } }
+
   .contact{ background:var(--ink); color:var(--paper); }
   .contact-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; }
   .contact-info p{ color:rgba(247,244,238,0.72); font-size:15px; margin-bottom:28px; max-width:420px; }
@@ -204,6 +208,7 @@
       <a href="#capabilities"><span data-lang="zh">供应能力</span><span data-lang="en">Capabilities</span><span data-lang="ja">対応領域</span></a>
       <a href="#network"><span data-lang="zh">合作网络</span><span data-lang="en">Network</span><span data-lang="ja">パートナー</span></a>
       <a href="#process"><span data-lang="zh">合作流程</span><span data-lang="en">Process</span><span data-lang="ja">流れ</span></a>
+      <a href="#office"><span data-lang="zh">办公环境</span><span data-lang="en">Office</span><span data-lang="ja">オフィス</span></a>
       <a href="#contact"><span data-lang="zh">联系我们</span><span data-lang="en">Contact</span><span data-lang="ja">お問い合わせ</span></a>
     </div>
     <div class="langswitch" id="langswitch">
@@ -346,9 +351,9 @@
         <p><span data-lang="zh">合作工厂具备成熟的弹簧成型、精密车削与自有电镀工艺，服务于消费电子、汽车电子等多个行业的头部客户。</span><span data-lang="en">Our partner factory offers mature spring forming, precision turning and in-house electroplating, serving leading customers across consumer electronics and automotive electronics.</span><span data-lang="ja">協力工場は成熟したばね成形・精密旋削・自社メッキ技術を有し、家電・車載電子など多分野のトップクライアントに対応しています。</span></p>
       </div>
       <div class="network-card">
-        <span class="tag"><span data-lang="zh">合作供应商</span><span data-lang="en">Partner Supplier</span><span data-lang="ja">協力サプライヤー</span></span>
+        <span class="tag"><span data-lang="zh">合作供应商 · 东莞市力旋机械制造有限公司</span><span data-lang="en">Partner Supplier · Dongguan Lixuan Machinery Manufacturing Co., Ltd.</span><span data-lang="ja">協力サプライヤー · 東莞市力旋機械製造有限公司</span></span>
         <h3><span data-lang="zh">精密定位滑台 · 直线电机 · 电动缸</span><span data-lang="en">Precision Slides · Linear Motors · Electric Cylinders</span><span data-lang="ja">精密位置決めスライド・リニアモーター・電動シリンダー</span></h3>
-        <p><span data-lang="zh">合作工厂专业研发制造精密定位滑台、直线滑台与电动缸，产品应用于3C、半导体、生物科技等自动化设备领域。</span><span data-lang="en">Our partner factory specializes in precision positioning slides, linear slides and electric cylinders, applied across 3C, semiconductor and biotech automation equipment.</span><span data-lang="ja">協力工場は精密位置決めスライド・リニアスライド・電動シリンダーの開発製造を専門とし、3C・半導体・バイオ関連の自動化設備分野で採用されています。</span></p>
+        <p><span data-lang="zh">专业研发制造精密定位滑台、直线滑台与电动缸，产品应用于3C、半导体、生物科技等自动化设备领域。</span><span data-lang="en">Specializes in precision positioning slides, linear slides and electric cylinders, applied across 3C, semiconductor and biotech automation equipment.</span><span data-lang="ja">精密位置決めスライド・リニアスライド・電動シリンダーの開発製造を専門とし、3C・半導体・バイオ関連の自動化設備分野で採用されています。</span></p>
       </div>
     </div>
   </div>
@@ -389,6 +394,20 @@
           <p><span data-lang="zh">全程跟进生产进度与品质，协助物流与清关，直至交付完成。</span><span data-lang="en">We track production progress and quality throughout, assisting with logistics and customs clearance through to delivery.</span><span data-lang="ja">生産進捗・品質を継続的に確認し、物流・通関のサポートを納品まで行います。</span></p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="office">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span data-lang="zh">办公环境</span><span data-lang="en">Our Office</span><span data-lang="ja">オフィス環境</span></span>
+      <h2><span data-lang="zh">东莞本地办公团队</span><span data-lang="en">Based in Dongguan</span><span data-lang="ja">東莞に拠点を置くチーム</span></h2>
+    </div>
+    <div class="office-grid">
+      <img src="office-3.jpg" alt="Miracle Business Consulting office workspace">
+      <img src="office-1.jpg" alt="Miracle Business Consulting office desks">
+      <img src="office-2.jpg" alt="Miracle Business Consulting meeting room">
     </div>
   </div>
 </section>
