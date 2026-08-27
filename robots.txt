@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://miracle-website-e8e.pages.dev/sitemap.xml
