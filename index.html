@@ -7,6 +7,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics 4 (GA4) -->
+<!-- 把下面两处 G-XXXXXXXXXX 替换成你自己的GA4测量ID，获取方式见下方说明 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 <style>
   :root{
     --ink:#15130f;
@@ -131,6 +141,53 @@
   .fact-row span:first-child{ color:var(--ink-soft); }
   .fact-row span:last-child{ font-weight:500; text-align:right; max-width:60%; }
 
+  /* ---- what we supply ---- */
+  .supply{ background:var(--ink); padding-bottom:0; }
+  .supply-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-onink); border:1px solid var(--line-onink); position:relative; z-index:1; }
+  .supply-card{ background:var(--ink); padding:32px 28px; }
+  .supply-card .supply-label{ font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--brass); margin-bottom:14px; display:block; }
+  .supply-card h3{ font-size:18px; font-weight:600; margin-bottom:10px; color:var(--paper); }
+  .supply-card .supply-spec{ font-family:'Noto Serif SC','Noto Serif JP',serif; font-size:14.5px; color:var(--brass-pale); margin-bottom:10px; }
+  .supply-card p{ font-size:13px; color:rgba(247,244,238,0.62); line-height:1.6; }
+  @media (max-width:860px){ .supply-grid{ grid-template-columns:1fr; } }
+
+  /* ---- rfq banner ---- */
+  .rfq-banner{ background:var(--brass); padding:36px 0; }
+  .rfq-banner .wrap{ display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; }
+  .rfq-banner h3{ font-size:19px; font-weight:600; color:var(--ink); margin-bottom:6px; }
+  .rfq-banner .rfq-steps{ font-size:13px; color:var(--ink-soft); display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+  .rfq-banner .rfq-steps b{ color:var(--ink); font-weight:600; }
+  .rfq-banner .btn-dark{ background:var(--ink); color:var(--paper); white-space:nowrap; }
+  .rfq-banner .btn-dark:hover{ background:var(--ink-soft); }
+
+  /* ---- value ribbon (Source/Engineer/Coordinate/Inspect/Deliver) ---- */
+  .value-ribbon{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:48px; }
+  .value-step{ background:var(--paper); padding:26px 20px; }
+  .value-step .value-no{ font-size:11px; color:var(--ink-soft); letter-spacing:.08em; }
+  .value-step .value-word{ font-family:'Noto Serif SC','Noto Serif JP',serif; font-size:21px; font-weight:700; color:var(--brass-deep); display:block; margin:6px 0 10px; }
+  .value-step p{ font-size:12.5px; color:var(--ink-soft); line-height:1.55; }
+  @media (max-width:860px){ .value-ribbon{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .value-ribbon{ grid-template-columns:1fr; } }
+
+  /* ---- industries ---- */
+  .industries{ background:var(--paper-warm); }
+  .industries-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .industry-card{ background:var(--paper); padding:30px 26px; }
+  .industry-card h3{ font-size:17.5px; font-weight:600; margin-bottom:16px; }
+  .industry-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .industry-tag{ font-size:11.5px; letter-spacing:.02em; padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:var(--ink-soft); background:var(--paper); }
+  @media (max-width:860px){ .industries-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .industries-grid{ grid-template-columns:1fr; } }
+
+  /* ---- capability matrix ---- */
+  .matrix-table{ width:100%; border-collapse:collapse; margin-top:8px; }
+  .matrix-table th, .matrix-table td{ text-align:left; padding:14px 16px; border-bottom:1px solid var(--line); font-size:14px; }
+  .matrix-table th{ font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--brass-deep); font-weight:600; }
+  .matrix-table td:first-child{ font-weight:500; }
+  .matrix-table tr:hover td{ background:var(--paper-warm); }
+  .matrix-note{ font-size:12px; color:var(--ink-soft); margin-top:14px; }
+  .matrix-cta{ margin-top:32px; }
+
   .cap-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
   .cap-card{ background:var(--paper); padding:36px 28px; }
   .cap-num{ font-family:'Noto Serif SC','Noto Serif JP',serif; color:var(--brass-deep); font-size:14px; margin-bottom:20px; display:block; }
@@ -235,8 +292,9 @@
       <img src="logo.png" alt="Miracle Business Consulting logo">
     </div>
     <div class="navlinks">
-      <a href="#about"><span data-lang="zh">关于我们</span><span data-lang="en">About</span><span data-lang="ja">会社概要</span></a>
-      <a href="#capabilities"><span data-lang="zh">供应能力</span><span data-lang="en">Capabilities</span><span data-lang="ja">対応領域</span></a>
+      <a href="#about"><span data-lang="zh">为何选择我们</span><span data-lang="en">Why Us</span><span data-lang="ja">選ばれる理由</span></a>
+      <a href="#industries"><span data-lang="zh">服务行业</span><span data-lang="en">Industries</span><span data-lang="ja">対応業界</span></a>
+      <a href="#capabilities"><span data-lang="zh">能力矩阵</span><span data-lang="en">Capabilities</span><span data-lang="ja">対応領域</span></a>
       <a href="#network"><span data-lang="zh">合作网络</span><span data-lang="en">Network</span><span data-lang="ja">パートナー</span></a>
       <a href="#process"><span data-lang="zh">合作流程</span><span data-lang="en">Process</span><span data-lang="ja">流れ</span></a>
       <a href="#office"><span data-lang="zh">办公环境</span><span data-lang="en">Office</span><span data-lang="ja">オフィス</span></a>
@@ -253,28 +311,75 @@
 <section class="hero">
   <div class="wrap">
     <span class="eyebrow">
-      <span data-lang="zh">东莞 · 精密制造资源整合</span>
-      <span data-lang="en">Dongguan · Precision Manufacturing Sourcing</span>
-      <span data-lang="ja">東莞発 · 精密製造サプライチェーン</span>
+      <span data-lang="zh">东莞 · 精密制造与运动控制组件</span>
+      <span data-lang="en">Dongguan · Precision Manufacturing & Motion Components</span>
+      <span data-lang="ja">東莞発 · 精密製造とモーションコンポーネント</span>
     </span>
     <h1>
-      <span data-lang="zh">连接东莞精密制造产能，<br>为您的采购需求匹配可靠供应商</span>
-      <span data-lang="en">Connecting Dongguan's precision manufacturing capacity to your sourcing needs</span>
-      <span data-lang="ja">東莞の精密製造リソースを、<br>お客様の調達ニーズへ確かにつなぐ</span>
+      <span data-lang="zh">精密制造与运动控制组件，源自东莞</span>
+      <span data-lang="en">Precision Manufacturing &amp; Motion Components from Dongguan</span>
+      <span data-lang="ja">精密製造とモーションコンポーネント、東莞から</span>
     </h1>
     <p class="lead">
-      <span data-lang="zh">米力高商务咨询专注于精密机械零部件与自动化设备配件的贸易撮合，依托本地供应链网络，帮助海内外客户找到合适的东莞制造伙伴。</span>
-      <span data-lang="en">Miracle Business Consulting connects buyers with vetted Dongguan manufacturers of precision machined parts and automation equipment components, drawing on an established local supply network.</span>
-      <span data-lang="ja">米力高商务咨询（Miracle Business Consulting）は、精密機械部品や自動化設備部品の分野で、東莞の信頼できる製造パートナーとお客様をおつなぎします。</span>
+      <span data-lang="zh">我们不是低成本代工渠道，而是帮助国际制造商在东莞制造生态中寻源、工程适配、统筹协调、品检与交付精密零部件的专业伙伴。</span>
+      <span data-lang="en">We're not a low-cost manufacturing channel. We help international manufacturers source, engineer, coordinate, inspect and deliver precision components from Dongguan's manufacturing ecosystem.</span>
+      <span data-lang="ja">私たちは低価格な製造窓口ではありません。東莞の製造エコシステムから、精密部品のソーシング・エンジニアリング適合・調整・検査・納品までを一貫してサポートするパートナーです。</span>
     </p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-brass">
-        <span data-lang="zh">发起询价</span><span data-lang="en">Request a Quote</span><span data-lang="ja">お見積り依頼</span>
+        <span data-lang="zh">发送图纸获取报价</span><span data-lang="en">Send Your Drawing</span><span data-lang="ja">図面を送って見積依頼</span>
       </a>
-      <a href="#capabilities" class="btn btn-ghost">
-        <span data-lang="zh">了解供应能力</span><span data-lang="en">View Capabilities</span><span data-lang="ja">対応領域を見る</span>
+      <a href="#industries" class="btn btn-ghost">
+        <span data-lang="zh">查看服务行业</span><span data-lang="en">View Industries We Serve</span><span data-lang="ja">対応業界を見る</span>
       </a>
     </div>
+  </div>
+</section>
+
+<section class="supply">
+  <div class="wrap">
+    <div class="supply-grid">
+      <div class="supply-card">
+        <span class="supply-label"><span data-lang="zh">供应范围 01</span><span data-lang="en">What We Supply 01</span><span data-lang="ja">対応領域 01</span></span>
+        <h3><span data-lang="zh">精密CNC加工</span><span data-lang="en">Precision CNC Machining</span><span data-lang="ja">精密CNC加工</span></h3>
+        <div class="supply-spec">±0.01 mm / ±0.005 mm*</div>
+        <p><span data-lang="zh">从打样到量产，覆盖3/4/5轴CNC、车铣复合与慢走丝加工。</span><span data-lang="en">Prototype → Mass Production, covering 3/4/5-axis CNC, Swiss turning and wire EDM.</span><span data-lang="ja">試作から量産まで、3/4/5軸CNC・スイス旋盤・ワイヤー放電加工に対応。</span></p>
+      </div>
+      <div class="supply-card">
+        <span class="supply-label"><span data-lang="zh">供应范围 02</span><span data-lang="en">What We Supply 02</span><span data-lang="ja">対応領域 02</span></span>
+        <h3><span data-lang="zh">直线电机模组</span><span data-lang="en">Linear Motor Modules</span><span data-lang="ja">リニアモーターモジュール</span></h3>
+        <div class="supply-spec"><span data-lang="zh">高速 / 高精度 / 定制行程</span><span data-lang="en">High-speed / High-precision / Custom Stroke</span><span data-lang="ja">高速・高精度・カスタムストローク</span></div>
+        <p><span data-lang="zh">电磁直驱与螺杆/皮带传动模组，行程与负载参数均可定制。</span><span data-lang="en">Direct-drive and ball-screw/belt-driven modules, with custom stroke and payload specifications.</span><span data-lang="ja">電磁直動およびボールねじ・ベルト駆動モジュール、ストローク・荷重ともカスタム対応。</span></p>
+      </div>
+      <div class="supply-card">
+        <span class="supply-label"><span data-lang="zh">供应范围 03</span><span data-lang="en">What We Supply 03</span><span data-lang="ja">対応領域 03</span></span>
+        <h3><span data-lang="zh">自动化配套组件</span><span data-lang="en">Automation Components</span><span data-lang="ja">自動化コンポーネント</span></h3>
+        <div class="supply-spec"><span data-lang="zh">直线滑台 · 电动缸 · 轴类 · 结构件</span><span data-lang="en">Linear Slides / Electric Cylinders / Shafts / Structural Parts</span><span data-lang="ja">直動スライド・電動シリンダー・シャフト・構造部品</span></div>
+        <p><span data-lang="zh">面向自动化产线的配套结构件与紧固件，支持表面处理定制。</span><span data-lang="en">Structural and fastening components for automation lines, with custom surface treatment options.</span><span data-lang="ja">自動化ラインに対応した構造・締結部品、表面処理のカスタムにも対応。</span></p>
+      </div>
+    </div>
+    <p style="font-size:11.5px;color:rgba(247,244,238,0.42);margin-top:18px;padding-bottom:32px;">
+      <span data-lang="zh">*±0.005mm适用于特定工艺与尺寸范围，具体以图纸评估结果为准。</span>
+      <span data-lang="en">*±0.005mm applies to select processes and dimensional ranges; final tolerance confirmed upon drawing review.</span>
+      <span data-lang="ja">*±0.005mmは特定の工程・寸法範囲に適用されます。詳細は図面確認後にご案内します。</span>
+    </p>
+  </div>
+</section>
+
+<section class="rfq-banner">
+  <div class="wrap">
+    <div>
+      <h3><span data-lang="zh">发送您的图纸</span><span data-lang="en">Send Your Drawing</span><span data-lang="ja">図面をお送りください</span></h3>
+      <div class="rfq-steps">
+        <span><span data-lang="zh">上传</span><span data-lang="en">Upload your</span><span data-lang="ja">アップロード:</span></span>
+        <b>PDF / STEP / DXF / BOM</b>
+        <span>—</span>
+        <span><span data-lang="zh">24–48小时内获得报价</span><span data-lang="en">Get RFQ within 24–48 hours</span><span data-lang="ja">24〜48時間以内に見積を提示</span></span>
+      </div>
+    </div>
+    <a href="#contact" class="btn btn-dark">
+      <span data-lang="zh">上传图纸</span><span data-lang="en">Upload Your Files</span><span data-lang="ja">図面をアップロード</span>
+    </a>
   </div>
 </section>
 
@@ -287,47 +392,136 @@
 </div>
 
 <section id="about">
-  <div class="wrap about-grid">
-    <div>
-      <span class="eyebrow">
-        <span data-lang="zh">关于米力高</span><span data-lang="en">About Miracle</span><span data-lang="ja">会社概要</span>
-      </span>
-      <h2 style="font-size:28px;font-weight:600;margin-bottom:24px;">
-        <span data-lang="zh">东莞市米力高商务咨询有限责任公司</span>
-        <span data-lang="en">Dongguan Miracle Business Consulting Co., Ltd.</span>
-        <span data-lang="ja">東莞市米力高商務咨詢有限責任公司</span>
-      </h2>
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow">
+          <span data-lang="zh">为何选择我们</span><span data-lang="en">Why Buy From Us</span><span data-lang="ja">選ばれる理由</span>
+        </span>
+        <h2 style="font-size:28px;font-weight:600;margin-bottom:24px;">
+          <span data-lang="zh">我们不卖"低成本中国制造"</span>
+          <span data-lang="en">We don't sell low-cost Chinese manufacturing</span>
+          <span data-lang="ja">私たちは「低価格な中国製造」を売っているのではありません</span>
+        </h2>
+        <p>
+          <span data-lang="zh">我们帮助国际制造商在东莞的制造生态中，找到、适配并稳定获得精密零部件——这五个动作，才是我们真正提供的价值。</span>
+          <span data-lang="en">We help international manufacturers source precision components from Dongguan's manufacturing ecosystem — engineered to spec, coordinated end-to-end, and delivered reliably. These five actions are what we actually sell.</span>
+          <span data-lang="ja">私たちは国際的な製造業者が、東莞の製造エコシステムから精密部品を確実に調達できるよう支援します。仕様に合わせて設計し、一貫して調整し、確実に納品する——これが私たちの本当の価値です。</span>
+        </p>
+      </div>
+      <div class="about-facts">
+        <div class="fact-row">
+          <span data-lang="zh">公司类型</span><span data-lang="en">Entity Type</span><span data-lang="ja">会社形態</span>
+          <span><span data-lang="zh">有限责任公司</span><span data-lang="en">Limited Liability Company</span><span data-lang="ja">有限責任会社</span></span>
+        </div>
+        <div class="fact-row">
+          <span data-lang="zh">所在地</span><span data-lang="en">Location</span><span data-lang="ja">所在地</span>
+          <span><span data-lang="zh">中国 · 广东 · 东莞</span><span data-lang="en">Dongguan, Guangdong, China</span><span data-lang="ja">中国広東省東莞市</span></span>
+        </div>
+        <div class="fact-row">
+          <span data-lang="zh">经营资质</span><span data-lang="en">Trade License</span><span data-lang="ja">貿易資格</span>
+          <span><span data-lang="zh">已取得进出口经营权</span><span data-lang="en">Import / export license held</span><span data-lang="ja">貿易ライセンス取得済み</span></span>
+        </div>
+        <div class="fact-row">
+          <span data-lang="zh">核心业务</span><span data-lang="en">Core Business</span><span data-lang="ja">主な事業</span>
+          <span><span data-lang="zh">精密机械零部件 / 自动化设备配件贸易</span><span data-lang="en">Precision parts & automation component trading</span><span data-lang="ja">精密部品・自動化設備部品の貿易</span></span>
+        </div>
+        <div class="fact-row">
+          <span data-lang="zh">服务范围</span><span data-lang="en">Service Scope</span><span data-lang="ja">対応範囲</span>
+          <span><span data-lang="zh">内贸对接 · 国际贸易</span><span data-lang="en">Domestic sourcing & international trade</span><span data-lang="ja">国内調達・国際貿易</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="value-ribbon">
+      <div class="value-step">
+        <span class="value-no">01</span>
+        <span class="value-word">Source</span>
+        <p><span data-lang="zh">从本地供应商网络中定位具备匹配工艺与产能的工厂</span><span data-lang="en">We identify the right Dongguan factory for your spec, process and volume</span><span data-lang="ja">仕様・工程・生産量に合った東莞の工場を選定</span></p>
+      </div>
+      <div class="value-step">
+        <span class="value-no">02</span>
+        <span class="value-word">Engineer</span>
+        <p><span data-lang="zh">评审图纸公差、材料与可制造性，提前发现风险</span><span data-lang="en">We review drawings, tolerances, materials and DFM before production starts</span><span data-lang="ja">図面公差・材料・製造可否を生産前に確認</span></p>
+      </div>
+      <div class="value-step">
+        <span class="value-no">03</span>
+        <span class="value-word">Coordinate</span>
+        <p><span data-lang="zh">统筹排产、打样与工厂沟通，客户只对接一个窗口</span><span data-lang="en">We manage scheduling, sampling and factory communication — one point of contact</span><span data-lang="ja">生産スケジュール・サンプル・工場との調整を一元管理</span></p>
+      </div>
+      <div class="value-step">
+        <span class="value-no">04</span>
+        <span class="value-word">Inspect</span>
+        <p><span data-lang="zh">按图纸标准逐批检验，出具尺寸检测报告</span><span data-lang="en">Every batch is inspected against your drawing, with dimensional reports on request</span><span data-lang="ja">図面基準でロットごとに検査、寸法検査報告書を発行</span></p>
+      </div>
+      <div class="value-step">
+        <span class="value-no">05</span>
+        <span class="value-word">Deliver</span>
+        <p><span data-lang="zh">协调物流与清关单证，准时交付到您指定地点</span><span data-lang="en">We handle logistics and customs paperwork for on-time delivery to your dock</span><span data-lang="ja">物流・通関書類を手配し、指定場所へ期日通り納品</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries" class="industries">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span data-lang="zh">服务行业</span><span data-lang="en">Industries</span><span data-lang="ja">対応業界</span></span>
+      <h2><span data-lang="zh">我们服务的行业</span><span data-lang="en">Industries We Serve</span><span data-lang="ja">対応業界</span></h2>
       <p>
-        <span data-lang="zh">我们是一家扎根东莞本地的贸易服务商，专注于整合区域内精密机械加工与自动化设备配套产能，为国内外采购方提供可靠的供应商匹配与订单协调服务。</span>
-        <span data-lang="en">We are a Dongguan-based trading service provider focused on integrating regional precision machining and automation equipment component capacity, helping domestic and international buyers connect with reliable suppliers.</span>
-        <span data-lang="ja">私たちは東莞に拠点を置く貿易サービス会社です。地域内の精密機械加工および自動化設備部品の製造リソースを取りまとめ、国内外のお客様に信頼できるサプライヤーとのマッチングをご提供しています。</span>
-      </p>
-      <p>
-        <span data-lang="zh">依托本地长期积累的产业人脉网络，我们能够快速定位合适的承接工厂，并全程协调交期、品质与商务条款，让客户专注于自己的核心业务。</span>
-        <span data-lang="en">Backed by a long-established local industry network, we quickly identify suitable factory partners and manage lead times, quality, and commercial terms end-to-end — so you can focus on your own business.</span>
-        <span data-lang="ja">長年培ってきた地域の産業ネットワークを活かし、最適な製造パートナーを迅速に選定。納期・品質・商談条件までを一貫してサポートし、お客様は本業に専念いただけます。</span>
+        <span data-lang="zh">不同行业对精度、洁净度与交付节奏的要求各不相同，以下是我们目前重点服务的六个方向。</span>
+        <span data-lang="en">Precision, cleanliness and delivery cadence requirements vary by industry — here are the six sectors we focus on today.</span>
+        <span data-lang="ja">業界ごとに求められる精度・清浄度・納期は異なります。現在特に力を入れている6分野をご紹介します。</span>
       </p>
     </div>
-    <div class="about-facts">
-      <div class="fact-row">
-        <span data-lang="zh">公司类型</span><span data-lang="en">Entity Type</span><span data-lang="ja">会社形態</span>
-        <span><span data-lang="zh">有限责任公司</span><span data-lang="en">Limited Liability Company</span><span data-lang="ja">有限責任会社</span></span>
+    <div class="industries-grid">
+      <div class="industry-card">
+        <h3><span data-lang="zh">半导体设备</span><span data-lang="en">Semiconductor Equipment</span><span data-lang="ja">半導体設備</span></h3>
+        <div class="industry-tags">
+          <span class="industry-tag"><span data-lang="zh">直线运动</span><span data-lang="en">Linear Motion</span><span data-lang="ja">直動</span></span>
+          <span class="industry-tag"><span data-lang="zh">精密CNC</span><span data-lang="en">Precision CNC</span><span data-lang="ja">精密CNC</span></span>
+          <span class="industry-tag"><span data-lang="zh">洁净室组件</span><span data-lang="en">Cleanroom Components</span><span data-lang="ja">クリーンルーム部品</span></span>
+        </div>
       </div>
-      <div class="fact-row">
-        <span data-lang="zh">所在地</span><span data-lang="en">Location</span><span data-lang="ja">所在地</span>
-        <span><span data-lang="zh">中国 · 广东 · 东莞</span><span data-lang="en">Dongguan, Guangdong, China</span><span data-lang="ja">中国広東省東莞市</span></span>
+      <div class="industry-card">
+        <h3><span data-lang="zh">电子 / 3C</span><span data-lang="en">Electronics / 3C</span><span data-lang="ja">電子機器・3C</span></h3>
+        <div class="industry-tags">
+          <span class="industry-tag"><span data-lang="zh">高速运动</span><span data-lang="en">High-speed Motion</span><span data-lang="ja">高速動作</span></span>
+          <span class="industry-tag"><span data-lang="zh">CNC零件</span><span data-lang="en">CNC Parts</span><span data-lang="ja">CNC部品</span></span>
+          <span class="industry-tag"><span data-lang="zh">自动化组件</span><span data-lang="en">Automation Components</span><span data-lang="ja">自動化部品</span></span>
+        </div>
       </div>
-      <div class="fact-row">
-        <span data-lang="zh">经营资质</span><span data-lang="en">Trade License</span><span data-lang="ja">貿易資格</span>
-        <span><span data-lang="zh">已取得进出口经营权</span><span data-lang="en">Import / export license held</span><span data-lang="ja">貿易ライセンス取得済み</span></span>
+      <div class="industry-card">
+        <h3><span data-lang="zh">机器人</span><span data-lang="en">Robotics</span><span data-lang="ja">ロボティクス</span></h3>
+        <div class="industry-tags">
+          <span class="industry-tag"><span data-lang="zh">直线模组</span><span data-lang="en">Linear Modules</span><span data-lang="ja">リニアモジュール</span></span>
+          <span class="industry-tag"><span data-lang="zh">精密结构件</span><span data-lang="en">Precision Structures</span><span data-lang="ja">精密構造部品</span></span>
+          <span class="industry-tag"><span data-lang="zh">运动组件</span><span data-lang="en">Motion Components</span><span data-lang="ja">モーション部品</span></span>
+        </div>
       </div>
-      <div class="fact-row">
-        <span data-lang="zh">核心业务</span><span data-lang="en">Core Business</span><span data-lang="ja">主な事業</span>
-        <span><span data-lang="zh">精密机械零部件 / 自动化设备配件贸易</span><span data-lang="en">Precision parts & automation component trading</span><span data-lang="ja">精密部品・自動化設備部品の貿易</span></span>
+      <div class="industry-card">
+        <h3><span data-lang="zh">医疗设备</span><span data-lang="en">Medical Equipment</span><span data-lang="ja">医療機器</span></h3>
+        <div class="industry-tags">
+          <span class="industry-tag"><span data-lang="zh">精密加工</span><span data-lang="en">Precision Machining</span><span data-lang="ja">精密加工</span></span>
+          <span class="industry-tag"><span data-lang="zh">紧凑型运动</span><span data-lang="en">Compact Motion</span><span data-lang="ja">コンパクト動作</span></span>
+          <span class="industry-tag"><span data-lang="zh">定制组件</span><span data-lang="en">Custom Components</span><span data-lang="ja">カスタム部品</span></span>
+        </div>
       </div>
-      <div class="fact-row">
-        <span data-lang="zh">服务范围</span><span data-lang="en">Service Scope</span><span data-lang="ja">対応範囲</span>
-        <span><span data-lang="zh">内贸对接 · 国际贸易</span><span data-lang="en">Domestic sourcing & international trade</span><span data-lang="ja">国内調達・国際貿易</span></span>
+      <div class="industry-card">
+        <h3><span data-lang="zh">汽车 / 新能源</span><span data-lang="en">Automotive / EV</span><span data-lang="ja">自動車・EV</span></h3>
+        <div class="industry-tags">
+          <span class="industry-tag"><span data-lang="zh">CNC组件</span><span data-lang="en">CNC Components</span><span data-lang="ja">CNC構成部品</span></span>
+          <span class="industry-tag"><span data-lang="zh">自动化零件</span><span data-lang="en">Automation Parts</span><span data-lang="ja">自動化パーツ</span></span>
+          <span class="industry-tag"><span data-lang="zh">生产治具</span><span data-lang="en">Production Fixtures</span><span data-lang="ja">生産治具</span></span>
+        </div>
+      </div>
+      <div class="industry-card">
+        <h3><span data-lang="zh">通用自动化</span><span data-lang="en">General Automation</span><span data-lang="ja">汎用自動化</span></h3>
+        <div class="industry-tags">
+          <span class="industry-tag"><span data-lang="zh">定制机械件</span><span data-lang="en">Custom Mechanical Parts</span><span data-lang="ja">カスタム機械部品</span></span>
+          <span class="industry-tag"><span data-lang="zh">运动模组</span><span data-lang="en">Motion Modules</span><span data-lang="ja">モーションモジュール</span></span>
+          <span class="industry-tag"><span data-lang="zh">OEM组件</span><span data-lang="en">OEM Components</span><span data-lang="ja">OEM部品</span></span>
+        </div>
       </div>
     </div>
   </div>
@@ -354,6 +548,44 @@
         <span class="cap-num">02</span>
         <h3><span data-lang="zh">自动化设备配套件</span><span data-lang="en">Automation Equipment Components</span><span data-lang="ja">自動化設備向け部品</span></h3>
         <p><span data-lang="zh">直线滑台、电动缸等自动化模组的配套结构件、轴类、紧固件及表面处理。</span><span data-lang="en">Structural, shaft and fastener components for linear slides, electric cylinders and other automation modules, plus surface finishing.</span><span data-lang="ja">直動スライド、電動シリンダーなど自動化モジュール向けの構造部品・シャフト・締結部品、表面処理に対応。</span></p>
+      </div>
+    </div>
+
+    <div style="margin-top:64px;">
+      <div class="section-head" style="margin-bottom:32px;">
+        <span class="eyebrow"><span data-lang="zh">能力矩阵</span><span data-lang="en">Capability Matrix</span><span data-lang="ja">対応能力一覧</span></span>
+        <h2 style="font-size:24px;"><span data-lang="zh">工艺与规格一览</span><span data-lang="en">Process & Specification Overview</span><span data-lang="ja">工程・仕様一覧</span></h2>
+      </div>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th><span data-lang="zh">能力</span><span data-lang="en">Capability</span><span data-lang="ja">対応能力</span></th>
+            <th><span data-lang="zh">规格</span><span data-lang="en">Specification</span><span data-lang="ja">仕様</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span data-lang="zh">CNC铣削</span><span data-lang="en">CNC Milling</span><span data-lang="ja">CNCフライス加工</span></td><td>3/4/5 Axis</td></tr>
+          <tr><td><span data-lang="zh">CNC车削</span><span data-lang="en">CNC Turning</span><span data-lang="ja">CNC旋盤加工</span></td><td>Swiss / CNC</td></tr>
+          <tr><td><span data-lang="zh">慢走丝线切割</span><span data-lang="en">Wire EDM</span><span data-lang="ja">ワイヤー放電加工</span></td><td><span data-lang="zh">可提供</span><span data-lang="en">Available</span><span data-lang="ja">対応可</span></td></tr>
+          <tr><td><span data-lang="zh">平面磨削</span><span data-lang="en">Surface Grinding</span><span data-lang="ja">平面研削</span></td><td><span data-lang="zh">可提供</span><span data-lang="en">Available</span><span data-lang="ja">対応可</span></td></tr>
+          <tr><td><span data-lang="zh">直线电机</span><span data-lang="en">Linear Motor</span><span data-lang="ja">リニアモーター</span></td><td><span data-lang="zh">定制</span><span data-lang="en">Customized</span><span data-lang="ja">カスタム対応</span></td></tr>
+          <tr><td><span data-lang="zh">直线模组</span><span data-lang="en">Linear Module</span><span data-lang="ja">リニアモジュール</span></td><td><span data-lang="zh">定制</span><span data-lang="en">Customized</span><span data-lang="ja">カスタム対応</span></td></tr>
+          <tr><td><span data-lang="zh">电动缸</span><span data-lang="en">Electric Cylinder</span><span data-lang="ja">電動シリンダー</span></td><td><span data-lang="zh">可提供</span><span data-lang="en">Available</span><span data-lang="ja">対応可</span></td></tr>
+          <tr><td><span data-lang="zh">表面处理</span><span data-lang="en">Surface Treatment</span><span data-lang="ja">表面処理</span></td><td><span data-lang="zh">阳极氧化 / 电镀</span><span data-lang="en">Anodizing / Plating</span><span data-lang="ja">アルマイト・メッキ</span></td></tr>
+          <tr><td><span data-lang="zh">材料</span><span data-lang="en">Materials</span><span data-lang="ja">材料</span></td><td><span data-lang="zh">铝 / 钢 / 黄铜 / 不锈钢</span><span data-lang="en">Aluminum / Steel / Brass / SUS</span><span data-lang="ja">アルミ・鋼・真鍮・SUS</span></td></tr>
+          <tr><td><span data-lang="zh">检测</span><span data-lang="en">Inspection</span><span data-lang="ja">検査</span></td><td>CMM / <span data-lang="zh">高度仪</span><span data-lang="en">Height Gauge</span><span data-lang="ja">ハイトゲージ</span></td></tr>
+          <tr><td>MOQ</td><td><span data-lang="zh">打样 → 量产</span><span data-lang="en">Prototype → Mass Production</span><span data-lang="ja">試作 → 量産</span></td></tr>
+        </tbody>
+      </table>
+      <p class="matrix-note">
+        <span data-lang="zh">以上为常规能力范围，具体工艺组合与精度等级请以图纸评估为准。</span>
+        <span data-lang="en">This reflects our standard capability range. Exact process combinations and tolerance grades are confirmed via drawing review.</span>
+        <span data-lang="ja">上記は標準的な対応範囲です。具体的な工程の組み合わせや精度等級は図面確認後にご案内します。</span>
+      </p>
+      <div class="matrix-cta">
+        <a href="#contact" class="btn btn-brass">
+          <span data-lang="zh">申请能力评估</span><span data-lang="en">Request Capability Review</span><span data-lang="ja">対応可否の確認を依頼</span>
+        </a>
       </div>
     </div>
   </div>
@@ -548,6 +780,11 @@
         <input type="hidden" name="_subject" value="新的询价 New Inquiry">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="utm_content" id="utm_content">
+        <input type="hidden" name="page_url" id="page_url">
         <div class="form-row">
           <div>
             <label><span data-lang="zh">姓名</span><span data-lang="en">Name</span><span data-lang="ja">お名前</span></label>
@@ -613,6 +850,40 @@
   });
   var saved = localStorage.getItem('mbc_lang') || 'zh';
   setLang(saved);
+
+  // ---- UTM capture: 首次进站记录来源，整个会话期间沿用同一份来源信息 ----
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    var stored = {};
+    var hasNewUtm = utmKeys.some(function(k){ return params.get(k); });
+    if (hasNewUtm) {
+      utmKeys.forEach(function(k){ if (params.get(k)) sessionStorage.setItem('mbc_'+k, params.get(k)); });
+    }
+    utmKeys.forEach(function(k){ stored[k] = sessionStorage.getItem('mbc_'+k) || ''; });
+
+    var setVal = function(id, val){ var el = document.getElementById(id); if (el) el.value = val; };
+    setVal('utm_source', stored.utm_source);
+    setVal('utm_medium', stored.utm_medium);
+    setVal('utm_campaign', stored.utm_campaign);
+    setVal('utm_content', stored.utm_content);
+    setVal('page_url', window.location.href);
+  })();
+
+  // ---- GA4 关键行为事件（需已在<head>中配置好GA4测量ID才会生效）----
+  if (typeof gtag === 'function') {
+    document.querySelectorAll('a[href="#contact"]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        gtag('event', 'cta_click', { cta_label: btn.textContent.trim() });
+      });
+    });
+    var inquiryForm = document.querySelector('form[action*="formsubmit"]');
+    if (inquiryForm) {
+      inquiryForm.addEventListener('submit', function(){
+        gtag('event', 'generate_lead', { form_name: 'inquiry_form' });
+      });
+    }
+  }
 </script>
 
 </body>
