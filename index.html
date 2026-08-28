@@ -197,6 +197,16 @@
   .cap-card li{ font-size:14.5px; color:var(--ink-soft); padding-left:16px; position:relative; margin-bottom:8px; }
   .cap-card li::before{ content:"—"; position:absolute; left:0; color:var(--brass); }
 
+  /* ---- product guide links (Landing Page 入口) ---- */
+  .productlink-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .productlink-card{ background:var(--paper); padding:32px 28px; text-decoration:none; color:var(--ink); display:block; transition:background .15s; }
+  .productlink-card:hover{ background:var(--paper-warm); }
+  .productlink-tag{ font-family:'Noto Serif SC','Noto Serif JP',serif; color:var(--brass-deep); font-size:14px; display:block; margin-bottom:16px; }
+  .productlink-card h3{ font-size:18px; font-weight:600; margin-bottom:10px; }
+  .productlink-card p{ font-size:14px; color:var(--ink-soft); margin-bottom:18px; }
+  .productlink-more{ font-size:13.5px; font-weight:600; color:var(--brass-deep); }
+  @media (max-width:860px){ .productlink-grid{ grid-template-columns:1fr; } }
+
   .network{ background:var(--paper-warm); }
   .partner-feature{
     border:1px solid var(--brass); background:var(--paper);
@@ -303,6 +313,7 @@
       <a href="#about"><span data-lang="zh">为何选择我们</span><span data-lang="en">Why Us</span><span data-lang="ja">選ばれる理由</span></a>
       <a href="#industries"><span data-lang="zh">服务行业</span><span data-lang="en">Industries</span><span data-lang="ja">対応業界</span></a>
       <a href="#capabilities"><span data-lang="zh">能力矩阵</span><span data-lang="en">Capabilities</span><span data-lang="ja">対応領域</span></a>
+      <a href="#products"><span data-lang="zh">产品专题</span><span data-lang="en">Products</span><span data-lang="ja">製品ガイド</span></a>
       <a href="#network"><span data-lang="zh">合作网络</span><span data-lang="en">Network</span><span data-lang="ja">パートナー</span></a>
       <a href="#process"><span data-lang="zh">合作流程</span><span data-lang="en">Process</span><span data-lang="ja">流れ</span></a>
       <a href="#office"><span data-lang="zh">办公环境</span><span data-lang="en">Office</span><span data-lang="ja">オフィス</span></a>
@@ -595,6 +606,40 @@
           <span data-lang="zh">申请能力评估</span><span data-lang="en">Request Capability Review</span><span data-lang="ja">対応可否の確認を依頼</span>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="products" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span data-lang="zh">产品专题</span><span data-lang="en">Product Guides</span><span data-lang="ja">製品ガイド</span></span>
+      <h2><span data-lang="zh">深入了解我们的核心产品线</span><span data-lang="en">Explore Our Core Product Lines</span><span data-lang="ja">主要製品ラインのご紹介</span></h2>
+      <p>
+        <span data-lang="zh">查看每条产品线的详细工艺能力、规格参数与应用案例，或直接提交您的图纸询价。</span>
+        <span data-lang="en">Review detailed capability, specifications and applications for each product line, or submit your drawing for a quote.</span>
+        <span data-lang="ja">各製品ラインの詳細な加工能力・仕様・応用事例をご覧いただけます。図面をお送りいただければ、お見積りも可能です。</span>
+      </p>
+    </div>
+    <div class="productlink-grid">
+      <a href="cnc-machining.html" class="productlink-card">
+        <span class="productlink-tag">01</span>
+        <h3><span data-lang="zh">定制CNC加工</span><span data-lang="en">Custom CNC Machining</span><span data-lang="ja">カスタムCNC加工</span></h3>
+        <p><span data-lang="zh">数控车削、加工中心、平面磨削、线切割全工艺，精度达0.005mm</span><span data-lang="en">CNC turning, machining centers, grinding & wire EDM, tolerances to 0.005mm</span><span data-lang="ja">CNC旋盤・マシニングセンタ・研削・ワイヤー放電加工に対応、精度0.005mm</span></p>
+        <span class="productlink-more"><span data-lang="zh">查看详情</span><span data-lang="en">View Details</span><span data-lang="ja">詳細を見る</span> →</span>
+      </a>
+      <a href="linear-motor-modules.html" class="productlink-card">
+        <span class="productlink-tag">02</span>
+        <h3><span data-lang="zh">直线电机模组</span><span data-lang="en">Linear Motor Modules</span><span data-lang="ja">リニアモーターモジュール</span></h3>
+        <p><span data-lang="zh">电磁直驱、超低顿振设计，适配高速高精度自动化产线</span><span data-lang="en">Direct-drive, ultra-low cogging — built for high-speed precision automation</span><span data-lang="ja">電磁直動・超低コギング設計、高速高精度自動化ラインに対応</span></p>
+        <span class="productlink-more"><span data-lang="zh">查看详情</span><span data-lang="en">View Details</span><span data-lang="ja">詳細を見る</span> →</span>
+      </a>
+      <a href="precision-motion-components.html" class="productlink-card">
+        <span class="productlink-tag">03</span>
+        <h3><span data-lang="zh">精密运动部件</span><span data-lang="en">Precision Motion Components</span><span data-lang="ja">精密運動部品</span></h3>
+        <p><span data-lang="zh">精密定位滑台、电动缸与直线模组，螺杆与皮带传动两大系列</span><span data-lang="en">Precision slides, electric cylinders & linear modules — ball-screw and belt-driven</span><span data-lang="ja">精密位置決めスライド・電動シリンダー・リニアモジュール、ボールねじ・ベルト駆動の2系列</span></p>
+        <span class="productlink-more"><span data-lang="zh">查看详情</span><span data-lang="en">View Details</span><span data-lang="ja">詳細を見る</span> →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -899,6 +944,13 @@
 </section>
 
 <footer>
+  <div class="wrap" style="padding-bottom:20px;">
+    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px;font-size:13.5px;">
+      <a href="cnc-machining.html" style="color:rgba(247,244,238,0.7);text-decoration:none;">Custom CNC Machining</a>
+      <a href="linear-motor-modules.html" style="color:rgba(247,244,238,0.7);text-decoration:none;">Linear Motor Modules</a>
+      <a href="precision-motion-components.html" style="color:rgba(247,244,238,0.7);text-decoration:none;">Precision Motion Components</a>
+    </div>
+  </div>
   <div class="wrap footer-row">
     <span>© 2026 Miracle Business Consulting Co., Ltd. — 东莞市米力高商务咨询有限责任公司</span>
     <span><span data-lang="zh">东莞 · 中国</span><span data-lang="en">Dongguan · China</span><span data-lang="ja">東莞 · 中国</span></span>
