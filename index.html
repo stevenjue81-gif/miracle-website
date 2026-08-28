@@ -66,8 +66,8 @@
   }
   .brandmark{ display:flex; align-items:center; gap:14px; }
   .brandmark img{ height:44px; width:auto; }
-  .navlinks{ display:flex; align-items:center; gap:32px; }
-  .navlinks a{ font-size:15px; letter-spacing:0.02em; text-decoration:none; color:var(--ink-soft); }
+  .navlinks{ display:flex; align-items:center; gap:20px; }
+  .navlinks a{ font-size:14px; letter-spacing:0.01em; text-decoration:none; color:var(--ink-soft); white-space:nowrap; }
   .navlinks a:hover{ color:var(--brass-deep); }
   .langswitch{ display:flex; gap:2px; border:1px solid var(--line); border-radius:999px; padding:3px; }
   .langswitch button{
@@ -130,7 +130,7 @@
   .stripe-item b{ font-family:'Noto Serif SC','Noto Serif JP',serif; font-size:15px; margin-right:6px; }
 
   /* ---- sections ---- */
-  section{ padding:96px 0; }
+  section{ padding:96px 0; scroll-margin-top:84px; }
   .section-head{ max-width:640px; margin-bottom:56px; }
   .section-head .eyebrow{ color:var(--brass-deep); }
   .section-head h2{ font-size:clamp(26px,3vw,36px); font-weight:600; color:var(--ink); }
@@ -146,12 +146,34 @@
   /* ---- what we supply ---- */
   .supply{ background:var(--ink); padding-bottom:0; }
   .supply-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-onink); border:1px solid var(--line-onink); position:relative; z-index:1; }
-  .supply-card{ background:var(--ink); padding:32px 28px; }
+  .supply-card{ background:var(--ink); padding:0; overflow:hidden; }
+  .supply-card .supply-media{ overflow:hidden; height:190px; }
+  .supply-card .supply-media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+  .supply-card:hover .supply-media img{ transform:scale(1.08); }
+  .supply-card .supply-body{ padding:28px 26px 30px; }
   .supply-card .supply-label{ font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--brass); margin-bottom:14px; display:block; font-weight:600; }
   .supply-card h3{ font-size:18px; font-weight:600; margin-bottom:10px; color:var(--paper); }
   .supply-card .supply-spec{ font-family:'Noto Serif SC','Noto Serif JP',serif; font-size:14.5px; color:var(--brass-pale); margin-bottom:10px; }
   .supply-card p{ font-size:14.5px; color:rgba(247,244,238,0.68); line-height:1.6; }
   @media (max-width:860px){ .supply-grid{ grid-template-columns:1fr; } }
+
+  /* ---- core strength: large-format structural parts ---- */
+  .core-strength{ background:var(--ink); color:var(--paper); }
+  .core-strength .cs-media{ overflow:hidden; border:1px solid var(--line-onink); margin-bottom:48px; }
+  .core-strength .cs-media img{ width:100%; display:block; }
+  .core-strength .cs-eyebrow{ font-size:15px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); margin-bottom:20px; display:block; font-weight:600; }
+  .core-strength h2{ font-size:clamp(28px,3.2vw,38px); font-weight:700; color:var(--paper); line-height:1.3; margin-bottom:22px; max-width:820px; }
+  .core-strength p.cs-lead{ font-size:16.5px; color:rgba(247,244,238,0.78); max-width:760px; margin-bottom:36px; line-height:1.75; }
+  .cs-spec-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-onink); border:1px solid var(--line-onink); margin-bottom:36px; }
+  .cs-spec{ background:var(--ink); padding:22px 20px; }
+  .cs-spec b{ display:block; font-family:'Noto Serif SC','Noto Serif JP',serif; font-size:22px; color:var(--brass-pale); margin-bottom:6px; }
+  .cs-spec span{ font-size:13px; color:rgba(247,244,238,0.6); }
+  .cs-served{ font-size:14.5px; color:rgba(247,244,238,0.7); line-height:1.7; }
+  .cs-served b{ color:var(--paper); font-weight:600; }
+  @media (max-width:760px){ .cs-spec-row{ grid-template-columns:1fr 1fr; } }
+
+  /* ---- factory floor gallery ---- */
+  .factory-gallery{ margin-top:64px; }
 
   /* ---- rfq banner ---- */
   .rfq-banner{ background:var(--brass); padding:36px 0; }
@@ -313,6 +335,7 @@
     </div>
     <div class="navlinks">
       <a href="#about"><span data-lang="zh">为何选择我们</span><span data-lang="en">Why Us</span><span data-lang="ja">選ばれる理由</span></a>
+      <a href="#core-strength"><span data-lang="zh">核心竞争力</span><span data-lang="en">Core Strength</span><span data-lang="ja">コアコンピタンス</span></a>
       <a href="#industries"><span data-lang="zh">服务行业</span><span data-lang="en">Industries</span><span data-lang="ja">対応業界</span></a>
       <a href="#capabilities"><span data-lang="zh">能力矩阵</span><span data-lang="en">Capabilities</span><span data-lang="ja">対応領域</span></a>
       <a href="#products"><span data-lang="zh">产品专题</span><span data-lang="en">Products</span><span data-lang="ja">製品ガイド</span></a>
@@ -361,22 +384,31 @@
   <div class="wrap">
     <div class="supply-grid">
       <div class="supply-card">
-        <span class="supply-label"><span data-lang="zh">供应范围 01</span><span data-lang="en">What We Supply 01</span><span data-lang="ja">対応領域 01</span></span>
-        <h3><span data-lang="zh">精密CNC加工</span><span data-lang="en">Precision CNC Machining</span><span data-lang="ja">精密CNC加工</span></h3>
-        <div class="supply-spec">±0.01 mm / ±0.005 mm*</div>
-        <p><span data-lang="zh">从打样到量产，覆盖3/4/5轴CNC、车铣复合与慢走丝加工。</span><span data-lang="en">Prototype → Mass Production, covering 3/4/5-axis CNC, Swiss turning and wire EDM.</span><span data-lang="ja">試作から量産まで、3/4/5軸CNC・スイス旋盤・ワイヤー放電加工に対応。</span></p>
+        <div class="supply-media"><img src="factory-5-card.jpg" alt="CNC加工车间 Precision CNC Machining Workshop"></div>
+        <div class="supply-body">
+          <span class="supply-label"><span data-lang="zh">供应范围 01</span><span data-lang="en">What We Supply 01</span><span data-lang="ja">対応領域 01</span></span>
+          <h3><span data-lang="zh">精密CNC加工</span><span data-lang="en">Precision CNC Machining</span><span data-lang="ja">精密CNC加工</span></h3>
+          <div class="supply-spec">±0.01 mm / ±0.005 mm*</div>
+          <p><span data-lang="zh">从打样到量产，覆盖3/4/5轴CNC、车铣复合与慢走丝加工。</span><span data-lang="en">Prototype → Mass Production, covering 3/4/5-axis CNC, Swiss turning and wire EDM.</span><span data-lang="ja">試作から量産まで、3/4/5軸CNC・スイス旋盤・ワイヤー放電加工に対応。</span></p>
+        </div>
       </div>
       <div class="supply-card">
-        <span class="supply-label"><span data-lang="zh">供应范围 02</span><span data-lang="en">What We Supply 02</span><span data-lang="ja">対応領域 02</span></span>
-        <h3><span data-lang="zh">直线电机模组</span><span data-lang="en">Linear Motor Modules</span><span data-lang="ja">リニアモーターモジュール</span></h3>
-        <div class="supply-spec"><span data-lang="zh">高速 / 高精度 / 定制行程</span><span data-lang="en">High-speed / High-precision / Custom Stroke</span><span data-lang="ja">高速・高精度・カスタムストローク</span></div>
-        <p><span data-lang="zh">电磁直驱与螺杆/皮带传动模组，行程与负载参数均可定制。</span><span data-lang="en">Direct-drive and ball-screw/belt-driven modules, with custom stroke and payload specifications.</span><span data-lang="ja">電磁直動およびボールねじ・ベルト駆動モジュール、ストローク・荷重ともカスタム対応。</span></p>
+        <div class="supply-media"><img src="factory-7-card.jpg" alt="直线电机模组实拍 Linear Motor Modules"></div>
+        <div class="supply-body">
+          <span class="supply-label"><span data-lang="zh">供应范围 02</span><span data-lang="en">What We Supply 02</span><span data-lang="ja">対応領域 02</span></span>
+          <h3><span data-lang="zh">直线电机模组</span><span data-lang="en">Linear Motor Modules</span><span data-lang="ja">リニアモーターモジュール</span></h3>
+          <div class="supply-spec"><span data-lang="zh">高速 / 高精度 / 定制行程</span><span data-lang="en">High-speed / High-precision / Custom Stroke</span><span data-lang="ja">高速・高精度・カスタムストローク</span></div>
+          <p><span data-lang="zh">电磁直驱与螺杆/皮带传动模组，行程与负载参数均可定制。</span><span data-lang="en">Direct-drive and ball-screw/belt-driven modules, with custom stroke and payload specifications.</span><span data-lang="ja">電磁直動およびボールねじ・ベルト駆動モジュール、ストローク・荷重ともカスタム対応。</span></p>
+        </div>
       </div>
       <div class="supply-card">
-        <span class="supply-label"><span data-lang="zh">供应范围 03</span><span data-lang="en">What We Supply 03</span><span data-lang="ja">対応領域 03</span></span>
-        <h3><span data-lang="zh">自动化配套组件</span><span data-lang="en">Automation Components</span><span data-lang="ja">自動化コンポーネント</span></h3>
-        <div class="supply-spec"><span data-lang="zh">直线滑台 · 电动缸 · 轴类 · 结构件</span><span data-lang="en">Linear Slides / Electric Cylinders / Shafts / Structural Parts</span><span data-lang="ja">直動スライド・電動シリンダー・シャフト・構造部品</span></div>
-        <p><span data-lang="zh">面向自动化产线的配套结构件与紧固件，支持表面处理定制。</span><span data-lang="en">Structural and fastening components for automation lines, with custom surface treatment options.</span><span data-lang="ja">自動化ラインに対応した構造・締結部品、表面処理のカスタムにも対応。</span></p>
+        <div class="supply-media"><img src="factory-1-card.jpg" alt="自动化配套组件生产现场 Automation Components Production"></div>
+        <div class="supply-body">
+          <span class="supply-label"><span data-lang="zh">供应范围 03</span><span data-lang="en">What We Supply 03</span><span data-lang="ja">対応領域 03</span></span>
+          <h3><span data-lang="zh">自动化配套组件</span><span data-lang="en">Automation Components</span><span data-lang="ja">自動化コンポーネント</span></h3>
+          <div class="supply-spec"><span data-lang="zh">直线滑台 · 电动缸 · 轴类 · 结构件</span><span data-lang="en">Linear Slides / Electric Cylinders / Shafts / Structural Parts</span><span data-lang="ja">直動スライド・電動シリンダー・シャフト・構造部品</span></div>
+          <p><span data-lang="zh">面向自动化产线的配套结构件与紧固件，支持表面处理定制。</span><span data-lang="en">Structural and fastening components for automation lines, with custom surface treatment options.</span><span data-lang="ja">自動化ラインに対応した構造・締結部品、表面処理のカスタムにも対応。</span></p>
+        </div>
       </div>
     </div>
     <p style="font-size:11.5px;color:rgba(247,244,238,0.42);margin-top:18px;padding-bottom:32px;">
@@ -481,6 +513,36 @@
         <p><span data-lang="zh">协调物流与清关单证，准时交付到您指定地点</span><span data-lang="en">We handle logistics and customs paperwork for on-time delivery to your dock</span><span data-lang="ja">物流・通関書類を手配し、指定場所へ期日通り納品</span></p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="core-strength" class="core-strength">
+  <div class="wrap">
+    <span class="cs-eyebrow">
+      <span data-lang="zh">核心竞争力</span><span data-lang="en">Core Strength</span><span data-lang="ja">コアコンピタンス</span>
+    </span>
+    <h2>
+      <span data-lang="zh">最长2.5米的中大型精密结构件，是我们区别于一般贸易商的地方</span>
+      <span data-lang="en">Large-Format Precision Structures Up to 2.5m — What Sets Us Apart from a Typical Trading Company</span>
+      <span data-lang="ja">最長2.5メートルの中大型精密構造部品 — 一般的な貿易会社との違い</span>
+    </h2>
+    <p class="cs-lead">
+      <span data-lang="zh">直线传动模组基座、滑台、电机座、设备底座与立柱——这类大尺寸结构件对机床精度、床身刚性与运输保护要求极高，很多贸易商不敢接、也接不好。我们的合作工厂长期为东莞本地精雕机、数控机床、AI服务器机箱与机器人整机厂商制造这类大件，这是这个细分领域里少数人真正具备的能力。</span>
+      <span data-lang="en">Linear drive module bases, slide bases, motor mounts, and equipment bases/columns — large structural parts like these demand serious machine rigidity, bed precision, and shipping protection, which is why most trading companies avoid them or can't execute well. Our partner factory has long supplied these exact parts to Dongguan-based makers of precision engraving machines, CNC machine tools, AI server chassis, and robotics equipment — a capability few in this space genuinely have.</span>
+      <span data-lang="ja">直動モジュールのベース、スライドベース、モーターマウント、設備ベース・コラム——これらの大型構造部品は機械剛性・ベッド精度・輸送保護に高い要求があり、多くの貿易会社は対応を避けるか、うまく実行できません。当社のパートナー工場は、東莞の精密彫刻機・NC工作機械・AIサーバー筐体・ロボット完成機メーカー向けにこうした大型部品を長年供給してきました。この分野で本当に対応できる企業は多くありません。</span>
+    </p>
+    <div class="cs-media"><img src="factory-3-wide.jpg" alt="大型结构件原材料仓储 Long-stock raw material storage for large structural parts"></div>
+    <div class="cs-spec-row">
+      <div class="cs-spec"><b>2.5 m</b><span><span data-lang="zh">最长加工尺寸</span><span data-lang="en">Max Part Length</span><span data-lang="ja">最大加工寸法</span></span></div>
+      <div class="cs-spec"><b><span data-lang="zh">基座 · 滑台</span><span data-lang="en">Bases · Slides</span><span data-lang="ja">ベース・スライド</span></b><span><span data-lang="zh">直线传动模组基座</span><span data-lang="en">Linear drive module bases</span><span data-lang="ja">直動モジュールベース</span></span></div>
+      <div class="cs-spec"><b><span data-lang="zh">电机座</span><span data-lang="en">Motor Mounts</span><span data-lang="ja">モーターマウント</span></b><span><span data-lang="zh">定制安装接口</span><span data-lang="en">Custom mounting interfaces</span><span data-lang="ja">カスタム取付インターフェース</span></span></div>
+      <div class="cs-spec"><b><span data-lang="zh">底座 · 立柱</span><span data-lang="en">Bases · Columns</span><span data-lang="ja">ベース・コラム</span></b><span><span data-lang="zh">设备主体结构件</span><span data-lang="en">Main structural bodies</span><span data-lang="ja">設備本体構造部品</span></span></div>
+    </div>
+    <p class="cs-served">
+      <span data-lang="zh"><b>典型服务对象：</b>精雕机、数控机床、AI服务器机箱、机器人整机制造商——只要设备里有大尺寸结构件，我们大概率能做。</span>
+      <span data-lang="en"><b>Typical customers:</b> makers of precision engraving machines, CNC machine tools, AI server chassis, and robotics — if your equipment has a large structural part inside it, chances are we can make it.</span>
+      <span data-lang="ja"><b>主な対象顧客：</b>精密彫刻機、NC工作機械、AIサーバー筐体、ロボット完成機メーカー——設備内に大型構造部品があれば、対応できる可能性が高いです。</span>
+    </p>
   </div>
 </section>
 
@@ -592,6 +654,7 @@
           <tr><td><span data-lang="zh">直线电机</span><span data-lang="en">Linear Motor</span><span data-lang="ja">リニアモーター</span></td><td><span data-lang="zh">定制</span><span data-lang="en">Customized</span><span data-lang="ja">カスタム対応</span></td></tr>
           <tr><td><span data-lang="zh">直线模组</span><span data-lang="en">Linear Module</span><span data-lang="ja">リニアモジュール</span></td><td><span data-lang="zh">定制</span><span data-lang="en">Customized</span><span data-lang="ja">カスタム対応</span></td></tr>
           <tr><td><span data-lang="zh">电动缸</span><span data-lang="en">Electric Cylinder</span><span data-lang="ja">電動シリンダー</span></td><td><span data-lang="zh">可提供</span><span data-lang="en">Available</span><span data-lang="ja">対応可</span></td></tr>
+          <tr><td><span data-lang="zh">大型结构件</span><span data-lang="en">Large-Format Structural Parts</span><span data-lang="ja">大型構造部品</span></td><td><span data-lang="zh">最长2.5m</span><span data-lang="en">Up to 2.5m</span><span data-lang="ja">最大2.5m</span></td></tr>
           <tr><td><span data-lang="zh">表面处理</span><span data-lang="en">Surface Treatment</span><span data-lang="ja">表面処理</span></td><td><span data-lang="zh">阳极氧化 / 电镀</span><span data-lang="en">Anodizing / Plating</span><span data-lang="ja">アルマイト・メッキ</span></td></tr>
           <tr><td><span data-lang="zh">材料</span><span data-lang="en">Materials</span><span data-lang="ja">材料</span></td><td><span data-lang="zh">铝 / 钢 / 黄铜 / 不锈钢</span><span data-lang="en">Aluminum / Steel / Brass / SUS</span><span data-lang="ja">アルミ・鋼・真鍮・SUS</span></td></tr>
           <tr><td><span data-lang="zh">检测</span><span data-lang="en">Inspection</span><span data-lang="ja">検査</span></td><td>CMM / <span data-lang="zh">高度仪</span><span data-lang="en">Height Gauge</span><span data-lang="ja">ハイトゲージ</span></td></tr>
@@ -812,6 +875,76 @@
               <span data-lang="zh">紧凑机身、精密定位，适配生物科技检测设备</span>
               <span data-lang="en">Compact body, precision positioning — fits biotech testing equipment</span>
               <span data-lang="ja">コンパクト設計・精密位置決め、バイオ検査装置に対応</span>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="factory-gallery">
+      <span class="product-gallery-label">
+        <span data-lang="zh">工厂实景 · 力旋机械生产现场</span>
+        <span data-lang="en">Inside the Factory · Lixuan Machinery Production Floor</span>
+        <span data-lang="ja">工場内部 · 力旋機械の生産現場</span>
+      </span>
+      <div class="product-grid">
+        <figure class="product-card">
+          <img src="factory-2.jpg" alt="总装车间 Assembly Workshop">
+          <figcaption>
+            <b>
+              <span data-lang="zh">总装车间</span>
+              <span data-lang="en">Assembly Workshop</span>
+              <span data-lang="ja">総組立工場</span>
+            </b>
+            <span>
+              <span data-lang="zh">滑台模组人工总装与出货前整理</span>
+              <span data-lang="en">Manual assembly and pre-shipment staging of slide modules</span>
+              <span data-lang="ja">スライドモジュールの手作業組立と出荷前整理</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="factory-4.jpg" alt="CNC加工车间 CNC Machining Workshop">
+          <figcaption>
+            <b>
+              <span data-lang="zh">CNC加工车间</span>
+              <span data-lang="en">CNC Machining Workshop</span>
+              <span data-lang="ja">CNC加工工場</span>
+            </b>
+            <span>
+              <span data-lang="zh">多台加工中心同步生产，覆盖结构件与精密车件</span>
+              <span data-lang="en">Multiple machining centers running in parallel for structural and precision parts</span>
+              <span data-lang="ja">複数の加工センターが並行稼働、構造部品・精密部品に対応</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="factory-6.jpg" alt="精密模组装配实拍 Precision Module Assembly">
+          <figcaption>
+            <b>
+              <span data-lang="zh">精密模组装配</span>
+              <span data-lang="en">Precision Module Assembly</span>
+              <span data-lang="ja">精密モジュール組立</span>
+            </b>
+            <span>
+              <span data-lang="zh">螺杆传动模组逐台装配、编号可溯源</span>
+              <span data-lang="en">Ball-screw modules assembled and traceable unit by unit</span>
+              <span data-lang="ja">ボールねじモジュールを1台ずつ組立、トレーサビリティ確保</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="factory-3.jpg" alt="原材料与长料仓储 Raw Material & Long-Stock Storage">
+          <figcaption>
+            <b>
+              <span data-lang="zh">原材料 · 长料仓储</span>
+              <span data-lang="en">Raw Material & Long-Stock Storage</span>
+              <span data-lang="ja">原材料・長尺材料保管</span>
+            </b>
+            <span>
+              <span data-lang="zh">支持长行程、大尺寸结构件的原料储备</span>
+              <span data-lang="en">Stock reserves to support long-stroke and large-format structural parts</span>
+              <span data-lang="ja">ロングストローク・大型構造部品に対応する原料在庫</span>
             </span>
           </figcaption>
         </figure>
