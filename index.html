@@ -228,6 +228,7 @@
   .equip-table th, .equip-table td{ padding:10px 12px; font-size:13.5px; }
   .equip-table th{ font-size:11.5px; }
   .equip-table-col{ overflow-x:auto; }
+  .equip-table-zebra tbody tr:nth-child(even) td{ background:var(--paper-warm); }
 
   .product-gallery{ margin-top:64px; }
   .product-gallery-label{ display:block; font-size:14px; letter-spacing:0.04em; color:var(--brass-deep); font-weight:600; margin-bottom:20px; }
@@ -645,16 +646,16 @@
         <span class="eyebrow"><span data-lang="zh">力旋设备实力</span><span data-lang="en">Lixuan Equipment Capability</span><span data-lang="ja">力旋の設備力</span></span>
         <h2 style="font-size:24px;"><span data-lang="zh">生产设备与检测仪器一览</span><span data-lang="en">Production & Inspection Equipment Overview</span><span data-lang="ja">生産設備・検査機器一覧</span></h2>
         <p>
-          <span data-lang="zh">力旋工厂配备19类共计27台加工设备，覆盖数控车削、加工中心、平面磨削、线切割等全工序；配合7类精密检测仪器，确保出货精度可追溯。</span>
-          <span data-lang="en">Lixuan's factory operates 27 units across 19 machine types — covering CNC turning, machining centers, surface grinding and wire EDM — backed by 7 categories of precision inspection instruments for traceable quality.</span>
-          <span data-lang="ja">力旋工場は19種類・計27台の設備を保有し、CNC旋盤加工、マシニングセンタ、平面研削、ワイヤー放電加工などの全工程に対応。7種類の精密検査機器により、出荷精度のトレーサビリティを確保しています。</span>
+          <span data-lang="zh">力旋工厂配备多类加工设备，覆盖数控车削、加工中心、平面磨削、线切割等全工序；并配合多类精密检测仪器，确保出货精度可追溯。</span>
+          <span data-lang="en">Lixuan's factory operates a full range of machine types — covering CNC turning, machining centers, surface grinding and wire EDM — backed by multiple categories of precision inspection instruments for traceable quality.</span>
+          <span data-lang="ja">力旋工場は多様な設備を保有し、CNC旋盤加工、マシニングセンタ、平面研削、ワイヤー放電加工などの全工程に対応。複数種類の精密検査機器により、出荷精度のトレーサビリティを確保しています。</span>
         </p>
       </div>
 
       <div class="equip-stats">
         <div class="partner-stat">
-          <b>27 <span data-lang="zh">台</span><span data-lang="en">Units</span><span data-lang="ja">台</span></b>
-          <span><span data-lang="zh">生产设备总数（19类）</span><span data-lang="en">Total production machines (19 types)</span><span data-lang="ja">生産設備台数（19種類）</span></span>
+          <b>30+ <span data-lang="zh">台</span><span data-lang="en">Units</span><span data-lang="ja">台</span></b>
+          <span><span data-lang="zh">生产设备总数</span><span data-lang="en">Total production machines</span><span data-lang="ja">生産設備台数</span></span>
         </div>
         <div class="partner-stat">
           <b>0.002 mm</b>
@@ -665,35 +666,33 @@
           <span><span data-lang="zh">最高检测精度（高度仪）</span><span data-lang="en">Highest inspection accuracy (height gauge)</span><span data-lang="ja">最高検査精度（ハイトゲージ）</span></span>
         </div>
         <div class="partner-stat">
-          <b>7 <span data-lang="zh">类</span><span data-lang="en">Categories</span><span data-lang="ja">種類</span></b>
+          <b><span data-lang="zh">多类</span><span data-lang="en">Multiple</span><span data-lang="ja">複数種類</span></b>
           <span><span data-lang="zh">精密检测仪器</span><span data-lang="en">Precision inspection instruments</span><span data-lang="ja">精密検査機器</span></span>
         </div>
       </div>
 
-      <table class="matrix-table equip-table" style="max-width:820px;">
+      <table class="matrix-table equip-table equip-table-zebra" style="max-width:820px;">
         <thead>
           <tr>
             <th><span data-lang="zh">工艺类别</span><span data-lang="en">Process Category</span><span data-lang="ja">工程カテゴリー</span></th>
             <th><span data-lang="zh">典型加工范围</span><span data-lang="en">Typical Work Envelope</span><span data-lang="ja">代表的な加工範囲</span></th>
             <th><span data-lang="zh">加工精度</span><span data-lang="en">Precision</span><span data-lang="ja">加工精度</span></th>
-            <th><span data-lang="zh">设备数量</span><span data-lang="en">Machines</span><span data-lang="ja">設備台数</span></th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><span data-lang="zh">CNC车削</span><span data-lang="en">CNC Turning</span><span data-lang="ja">CNC旋盤加工</span></td><td>Φ42–Φ175mm</td><td>0.005mm</td><td>2</td></tr>
-          <tr><td><span data-lang="zh">普通车削</span><span data-lang="en">Conventional Turning</span><span data-lang="ja">普通旋盤加工</span></td><td>Φ500×2000mm</td><td>0.01mm</td><td>1</td></tr>
-          <tr><td><span data-lang="zh">加工中心（CNC铣削）</span><span data-lang="en">CNC Machining Center</span><span data-lang="ja">マシニングセンタ</span></td><td>270–2500mm</td><td>0.005–0.01mm</td><td>7</td></tr>
-          <tr><td><span data-lang="zh">攻钻 / 攻牙</span><span data-lang="en">Tapping & Drilling</span><span data-lang="ja">タップ・ドリル加工</span></td><td>M2.5–M20</td><td>0.005–0.01mm</td><td>4</td></tr>
-          <tr><td><span data-lang="zh">平面磨削</span><span data-lang="en">Surface Grinding</span><span data-lang="ja">平面研削</span></td><td>400–600mm</td><td>0.002mm</td><td>2</td></tr>
-          <tr><td><span data-lang="zh">立式铣削</span><span data-lang="en">Vertical Milling</span><span data-lang="ja">立フライス加工</span></td><td>650×350×360mm</td><td>0.01mm</td><td>3</td></tr>
-          <tr><td><span data-lang="zh">线切割（快走丝）</span><span data-lang="en">Wire EDM</span><span data-lang="ja">ワイヤー放電加工</span></td><td>550×450×400mm</td><td>0.02mm</td><td>3</td></tr>
-          <tr><td><span data-lang="zh">辅助工艺</span><span data-lang="en">Auxiliary Processes</span><span data-lang="ja">補助工程</span><br><span style="font-size:12px;color:var(--ink-soft);"><span data-lang="zh">磨刀·高频·震动研磨</span><span data-lang="en">Grinding / HF / Vibratory Polishing</span><span data-lang="ja">刃物研削・高周波・振動研磨</span></span></td><td>—</td><td>—</td><td>4</td></tr>
+          <tr><td><span data-lang="zh">CNC车削</span><span data-lang="en">CNC Turning</span><span data-lang="ja">CNC旋盤加工</span></td><td>Φ42–Φ175mm</td><td>0.005mm</td></tr>
+          <tr><td><span data-lang="zh">普通车削</span><span data-lang="en">Conventional Turning</span><span data-lang="ja">普通旋盤加工</span></td><td>Φ500×2000mm</td><td>0.01mm</td></tr>
+          <tr><td><span data-lang="zh">加工中心（CNC铣削）</span><span data-lang="en">CNC Machining Center</span><span data-lang="ja">マシニングセンタ</span></td><td>270–2500mm</td><td>0.005–0.01mm</td></tr>
+          <tr><td><span data-lang="zh">攻钻 / 攻牙</span><span data-lang="en">Tapping & Drilling</span><span data-lang="ja">タップ・ドリル加工</span></td><td>M2.5–M20</td><td>0.005–0.01mm</td></tr>
+          <tr><td><span data-lang="zh">平面磨削</span><span data-lang="en">Surface Grinding</span><span data-lang="ja">平面研削</span></td><td>400–600mm</td><td>0.002mm</td></tr>
+          <tr><td><span data-lang="zh">立式铣削</span><span data-lang="en">Vertical Milling</span><span data-lang="ja">立フライス加工</span></td><td>650×350×360mm</td><td>0.01mm</td></tr>
+          <tr><td><span data-lang="zh">线切割（快走丝）</span><span data-lang="en">Wire EDM</span><span data-lang="ja">ワイヤー放電加工</span></td><td>550×450×400mm</td><td>0.02mm</td></tr>
         </tbody>
       </table>
       <p class="matrix-note">
-        <span data-lang="zh">以上为力旋工厂设备能力概览；配备7类精密检测仪器（含瑞士TESA高度仪、日本三丰千分尺等），按日/周/月周期定期校准，确保量测数据可追溯。完整设备清单与校准记录可在正式询价后提供。</span>
-        <span data-lang="en">Overview of Lixuan's equipment capability. The factory also operates 7 categories of precision inspection instruments (incl. Swiss TESA height gauges, Japanese Mitutoyo micrometers), calibrated on daily/weekly/monthly cycles. Full equipment lists and calibration records are available upon formal inquiry.</span>
-        <span data-lang="ja">力旋工場の設備能力概要です。7種類の精密検査機器（スイスTESA製ハイトゲージ、日本三豊製マイクロメータ等）を保有し、日次・週次・月次で校正を実施しています。詳細な設備リストと校正記録は正式なお問い合わせ後にご提供します。</span>
+        <span data-lang="zh">另配备磨刀、高频、震动研磨等辅助工艺设备，以及瑞士TESA高度仪、日本三丰千分尺等多类精密检测仪器，按日/周/月周期定期校准，确保量测数据可追溯。完整设备清单与校准记录可在正式询价后提供。</span>
+        <span data-lang="en">Also equipped with auxiliary process machines (tool grinding, high-frequency, vibratory polishing) and multiple precision inspection instruments — incl. Swiss TESA height gauges and Japanese Mitutoyo micrometers — calibrated on daily/weekly/monthly cycles. Full equipment lists and calibration records are available upon formal inquiry.</span>
+        <span data-lang="ja">刃物研削・高周波・振動研磨などの補助工程設備、およびスイスTESA製ハイトゲージ、日本三豊製マイクロメータ等の精密検査機器を保有し、日次・週次・月次で校正を実施しています。詳細な設備リストと校正記録は正式なお問い合わせ後にご提供します。</span>
       </p>
       <div class="matrix-cta">
         <a href="#contact" class="btn btn-brass">
