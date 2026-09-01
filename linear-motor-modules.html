@@ -182,7 +182,7 @@
       <h2><span data-lang="zh">询价表单</span><span data-lang="en">Request a Quote</span><span data-lang="ja">見積依頼フォーム</span></h2>
       <p><span data-lang="zh">告诉我们您的规格、数量与期望交期。</span><span data-lang="en">Tell us your specifications, quantity and target lead time.</span><span data-lang="ja">仕様・数量・希望納期をお知らせください。</span></p>
     </div>
-    <form action="https://dg-supply-chain-monitor.onrender.com/webhook/lead" method="POST">
+    <form action="/webhook-lead" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_next" value="https://miracle-website-e8e.pages.dev/linear-motor-modules.html">
       <input type="hidden" name="_subject" value="New Inquiry — Linear Motor Modules">
       <input type="hidden" name="_template" value="table">
@@ -198,6 +198,10 @@
       <div>
         <label><span data-lang="zh">需求说明</span><span data-lang="en">Project Details</span><span data-lang="ja">ご要望内容</span></label>
         <textarea name="message"></textarea>
+      </div>
+      <div>
+        <label><span data-lang="zh">图纸 / 图片附件（可选，最多 5 个，每个 ≤15MB，支持 PDF/DWG/DXF/STEP/PNG/JPG 等）</span><span data-lang="en">Drawing / Image Attachments (optional, max 5, ≤15MB each — PDF/DWG/DXF/STEP/PNG/JPG...)</span><span data-lang="ja">図面・画像の添付（任意・最大5件・各15MBまで。PDF/DWG/DXF/STEP/PNG/JPG 等）</span></label>
+        <input type="file" name="attachments" multiple accept=".pdf,.dwg,.dxf,.stp,.step,.igs,.iges,.sat,.sldprt,.sldasm,.png,.jpg,.jpeg,.gif,.bmp,.zip">
       </div>
       <div>
         <button type="submit" class="btn btn-brass" style="border:none;cursor:pointer;"><span data-lang="zh">提交询价</span><span data-lang="en">Submit Inquiry</span><span data-lang="ja">送信する</span></button>

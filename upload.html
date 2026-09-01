@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>图纸上传 — Miracle Precision Manufacturing</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    background: #101418; color: #f7f4ee; min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; padding:40px 16px;
+  }
+  .card {
+    background:#171c22; border:1px solid #2a3038; border-radius:14px;
+    max-width:640px; width:100%; padding:36px 32px; box-shadow:0 12px 40px rgba(0,0,0,.4);
+  }
+  .logo { font-size:15px; letter-spacing:2px; color:#c9a86a; text-transform:uppercase; margin-bottom:6px; }
+  h1 { font-size:24px; font-weight:600; margin-bottom:6px; }
+  .sub { font-size:13.5px; color:#9aa3ad; line-height:1.7; margin-bottom:26px; }
+  label { display:block; font-size:13px; color:#c3cbd4; margin:16px 0 6px; }
+  input[type=text], input[type=email], input[type=tel], textarea {
+    width:100%; padding:11px 13px; border-radius:8px; border:1px solid #2f3740;
+    background:#0e1216; color:#f7f4ee; font-size:14.5px; outline:none;
+  }
+  input:focus, textarea:focus { border-color:#c9a86a; }
+  textarea { min-height:96px; resize:vertical; }
+  .row { display:flex; gap:14px; } .row > div { flex:1; }
+  .drop {
+    border:2px dashed #3a4450; border-radius:10px; padding:26px 16px;
+    text-align:center; color:#8b95a0; font-size:13.5px; cursor:pointer;
+    transition:border-color .2s, background .2s; margin-top:8px;
+  }
+  .drop:hover, .drop.drag { border-color:#c9a86a; background:#1c232b; color:#e8dcc0; }
+  .drop b { color:#c9a86a; }
+  #fileList { margin-top:12px; }
+  .file-item {
+    display:flex; justify-content:space-between; align-items:center;
+    background:#1d242c; border:1px solid #2c343e; border-radius:8px;
+    padding:8px 12px; margin-top:6px; font-size:12.5px; color:#c3cbd4;
+  }
+  .file-item .sz { color:#7c8691; margin-left:10px; }
+  .file-item .rm { color:#e07060; cursor:pointer; font-size:13px; margin-left:10px; }
+  .file-item .bad { color:#e8a050; font-size:11.5px; }
+  button[type=submit] {
+    width:100%; margin-top:26px; padding:14px; border:none; border-radius:9px;
+    background:linear-gradient(135deg,#d8b878,#b8914e); color:#141414; font-size:15.5px;
+    font-weight:600; cursor:pointer; transition:opacity .15s;
+  }
+  button[type=submit]:hover { opacity:.88; }
+  .note { font-size:12px; color:#7c8691; margin-top:12px; text-align:center; line-height:1.6; }
+  .ok, .err { display:none; margin-top:18px; padding:13px 16px; border-radius:9px; font-size:13.5px; line-height:1.6; }
+  .ok { background:#14281e; border:1px solid #2c6e4f; color:#9ad0b0; }
+  .err { background:#2a1616; border:1px solid #8c3a34; color:#e8a09a; }
+  a { color:#c9a86a; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">Miracle Precision Manufacturing</div>
+  <h1>上传图纸 / 获取报价</h1>
+  <p class="sub">Upload your drawings or images and get a fast quote from our Dongguan CNC machining team.<br>上传图纸或图片，东莞机加工团队快速报价。</p>
+
+  <form action="/webhook-lead" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_next" value="https://miracle-website-e8e.pages.dev/upload.html?ok=1">
+    <input type="hidden" name="source_page" value="upload">
+    <div class="row">
+      <div><label>姓名 Name *</label><input type="text" name="name" required></div>
+      <div><label>公司 Company</label><input type="text" name="company"></div>
+    </div>
+    <div class="row">
+      <div><label>邮箱 Email *</label><input type="email" name="email" required></div>
+      <div><label>电话 / WhatsApp</label><input type="tel" name="phone"></div>
+    </div>
+    <div>
+      <label>产品意向 Product of Interest</label>
+      <input type="text" name="product" placeholder="e.g. Precision linear module base / CNC machining part">
+    </div>
+    <div>
+      <label>需求描述 Requirement Details</label>
+      <textarea name="message" placeholder="材料、数量、精度要求、交期等 / Material, qty, tolerance, lead time..."></textarea>
+    </div>
+    <label>图纸 / 图片 Drawing / Image Attachments *</label>
+    <div class="drop" id="drop">
+      <div style="font-size:26px;margin-bottom:6px;">📎</div>
+      <div><b>点击选择</b> 或拖拽文件到此处<br>
+      PDF / DWG / DXF / STEP / PNG / JPG…（最多 5 个，每个 ≤15MB）</div>
+    </div>
+    <input type="file" name="attachments" id="fileInput" multiple
+           accept=".pdf,.dwg,.dxf,.stp,.step,.igs,.iges,.sat,.sldprt,.sldasm,.png,.jpg,.jpeg,.gif,.bmp,.zip" style="display:none">
+    <div id="fileList"></div>
+    <button type="submit">提交询价 / Submit & Get Quote</button>
+    <p class="note">提交后信息将直接发送至我们的邮箱。After submitting, your inquiry is sent directly to our inbox.</p>
+  </form>
+
+  <div class="ok" id="okMsg">✅ 已收到您的图纸与询盘，我们会尽快回复！<br>Your drawings &amp; inquiry have been received — we will reply shortly!</div>
+  <div class="err" id="errMsg">⚠️ 部分文件超过 15MB 未能上传，请压缩后重试，或直接邮件发送至 miracle.tradingco.ltd@yandex.com。</div>
+</div>
+
+<script>
+  var drop = document.getElementById('drop');
+  var input = document.getElementById('fileInput');
+  var list = document.getElementById('fileList');
+  var files = [];
+  var MAX = 15 * 1024 * 1024;
+  var MAXN = 5;
+
+  drop.addEventListener('click', function(){ input.click(); });
+  ['dragover','dragenter'].forEach(function(ev){
+    drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.add('drag'); });
+  });
+  ['dragleave','drop'].forEach(function(ev){
+    drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.remove('drag'); });
+  });
+  drop.addEventListener('drop', function(e){ handle(e.dataTransfer.files); });
+  input.addEventListener('change', function(){ handle(input.files); input.value=''; });
+
+  function handle(fs){
+    Array.prototype.forEach.call(fs, function(f){
+      if (files.length >= MAXN) return;
+      files.push({ name:f.name, size:f.size, tooBig:f.size > MAX, file:f });
+    });
+    render();
+  }
+  function fmt(b){ return b > 1048576 ? (b/1048576).toFixed(1)+' MB' : Math.round(b/1024)+' KB'; }
+  function render(){
+    list.innerHTML = '';
+    files.forEach(function(f, i){
+      var d = document.createElement('div');
+      d.className = 'file-item';
+      var span = document.createElement('span');
+      span.textContent = f.name;
+      var sz = document.createElement('span');
+      sz.className = 'sz'; sz.textContent = fmt(f.size);
+      if (f.tooBig) { var b = document.createElement('span'); b.className='bad'; b.textContent='⚠ 超15MB'; sz.appendChild(b); }
+      var rm = document.createElement('span');
+      rm.className='rm'; rm.textContent='✕';
+      rm.addEventListener('click', function(){ files.splice(i,1); render(); });
+      d.appendChild(span); d.appendChild(sz); d.appendChild(rm);
+      list.appendChild(d);
+    });
+  }
+
+  // 提交时把 JS 侧文件同步回 input（保留拖拽选择的文件）
+  document.querySelector('form').addEventListener('submit', function(e){
+    var big = files.filter(function(f){ return f.tooBig; });
+    if (big.length) { e.preventDefault(); document.getElementById('errMsg').style.display='block'; return; }
+    var dt = new DataTransfer();
+    files.forEach(function(f){ if(!f.tooBig) dt.items.add(f.file); });
+    input.files = dt.files;
+  });
+
+  // 回跳提示
+  if (location.search.indexOf('ok=1') >= 0) document.getElementById('okMsg').style.display='block';
+  if (location.search.indexOf('upload=too_big') >= 0) document.getElementById('errMsg').style.display='block';
+</script>
+</body>
+</html>
